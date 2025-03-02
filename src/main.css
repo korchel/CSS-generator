@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("./fonts/Rubik-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./fonts/Rubik-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./fonts/Rubik-Bold.ttf");
+  font-weight: 700;
+}
+
+:root {
+  --light: #eff6e0;
+  --primary: #aec3b0;
+  --secondary: #598392;
+  --dark: #124559;
+  --black: #01161e;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background-color: var(--light);
+  color: var(--black);
+  height: 100vh;
+  padding-top: 100px;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+}
+
+/* TABS */
+
+.tabs-wrapper {
+  position: relative;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  display: block;
+  position: relative;
+  top: 25px;
+  height: 60px;
+
+  border-radius: 15px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: var(--secondary);
+  color: var(--light);
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
+.tab-item {
+  position: relative;
+  background-color: var(--primary);
+  padding: 20px;
+  border-radius: 0 10px 10px;
+  z-index: 10;
+}
+
+/* COMMON */
+
+.tab-item h2 {
+  margin-bottom: 20px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+
+label {
+  display: block;
+}
+
+input {
+  width: 100%;
+}
+
+/*removes color pick extansion img */
+img[class*="colorpick"] {
+  display: none;
+}
+
+input[type="color"] {
+  border: none;
+  cursor: pointer;
+}
+
+.result-vue {
+  height: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-code {
+  margin-top: auto;
+}
+
+.flex {
+  display: flex;
+  gap: 20px;
+}
