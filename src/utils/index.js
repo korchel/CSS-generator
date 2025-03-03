@@ -1,0 +1,1 @@
+export { HEXtoRGBA } from "./HEXtoRGBA";
