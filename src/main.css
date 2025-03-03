@@ -127,3 +127,50 @@ input[type="color"] {
   display: flex;
   gap: 20px;
 }
+
+/* slider */
+
+input[type="range"] {
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--secondary);
+  height: 8px;
+  border-radius: 4px;
+}
+
+input[type="range"]::-moz-range-track {
+  background: #053a5f;
+  height: 8px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--dark);
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  margin-top: -4px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  border-radius: 50%;
+  background-color: var(--dark);
+  height: 16px;
+  width: 16px;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  outline: 2px solid var(--dark);
+  outline-offset: 2px;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  outline: 2px solid var(--dark);
+  outline-offset: 2px;
+}
