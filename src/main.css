@@ -97,10 +97,6 @@ label {
   display: block;
 }
 
-input {
-  width: 100%;
-}
-
 /*removes color pick extansion img */
 img[class*="colorpick"] {
   display: none;

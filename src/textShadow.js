@@ -28,9 +28,14 @@ const setStyles = () => {
     .css("text-shadow", styles);
 
   $("#text_shadow_resultHex").val(
-    generateTextShadowStyles(offsetX, offsetY, blurRadius, color)
+    `text-shadow: ${generateTextShadowStyles(
+      offsetX,
+      offsetY,
+      blurRadius,
+      color
+    )}`
   );
-  $("#text_shadow_resultRgba").val(styles);
+  $("#text_shadow_resultRgba").val(`text-shadow: ${styles}`);
 };
 
 export const applyTextShadow = () => {

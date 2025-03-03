@@ -17,14 +17,14 @@ const generateBoxShadowStyles = (
   color,
   isInside
 ) => {
-  const styles = `${
+  const styles = `${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${color} ${
     isInside ? "inset" : ""
-  } ${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${color}`;
+  } `;
   return styles;
 };
 
 const setStyles = () => {
-  const isInside = insideInput.attr("checked");
+  const isInside = insideInput.is(":checked");
   const offsetX = offsetXInput.val();
   const offsetY = offsetYInput.val();
   const blurRadius = blurRadiusInput.val();
@@ -43,16 +43,22 @@ const setStyles = () => {
   $("#box_shadow_result").css("box-shadow", styles);
 
   $("#box_shadow_resultHex").val(
-    generateBoxShadowStyles(offsetX, offsetY, blurRadius, color, isInside)
+    `box-shadow: ${generateBoxShadowStyles(
+      offsetX,
+      offsetY,
+      blurRadius,
+      spreadRadius,
+      color,
+      isInside
+    )}`
   );
-  $("#box_shadow_resultRgba").val(styles);
+  $("#box_shadow_resultRgba").val(`box-shadow: ${styles}`);
 };
 
 export const applyBoxShadow = () => {
   setStyles();
 
   $("#box_shadow input").on("change", function () {
-    console.log("!!!!");
     setStyles();
   });
 };
