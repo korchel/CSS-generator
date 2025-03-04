@@ -2,6 +2,7 @@ import "./main.css";
 import $ from "jquery";
 import { applyTextShadow } from "./textShadow.js";
 import { applyBoxShadow } from "./boxShadow.js";
+import { applyGradient } from "./gradient.js";
 
 $(".tabs-wrapper").each(function () {
   let tabs = $(this);
@@ -22,3 +23,4 @@ $(".tabs-wrapper").each(function () {
 
 applyTextShadow();
 applyBoxShadow();
+applyGradient();

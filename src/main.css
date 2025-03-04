@@ -130,10 +130,44 @@ input[type="color"] {
   background-color: #598392;
 }
 
+/* gradient */
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.color-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.color-input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.color-input-group input {
+  margin-left: auto;
+}
+
+.stop-input-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
 /* slider */
 
 input[type="range"] {
   appearance: none;
+  width: 100%;
   background: transparent;
   cursor: pointer;
 }

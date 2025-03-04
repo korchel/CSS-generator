@@ -150,7 +150,85 @@
             </div>
           </div>
           <div class="tab-item" id="border_box"><h2>box-shadow</h2></div>
-          <div class="tab-item" id="gradient"><h2>gradient</h2></div>
+          <div class="tab-item" id="gradient">
+            <h2>gradient</h2>
+            <div class="flex">
+              <div class="col">
+                <label for="gradient_repeating">Repeating</label
+                ><input id="gradient_repeating" type="checkbox" />
+                <label for="gradient_angle">Angle</label>
+                <input
+                  id="gradient_angle"
+                  type="range"
+                  min="0"
+                  max="360"
+                  step="1"
+                  value="0"
+                />
+                <div class="colors">
+                  <div>
+                    <h3>Colors</h3>
+                    <button type="button" id="gradient_add_color">
+                      &plus;
+                    </button>
+                  </div>
+                  <div class="color-inputs">
+                    <div class="color-input">
+                      <div class="color-input-group">
+                        <label for="gradient_color_1">Color 1</label
+                        ><input
+                          id="gradient_color_1"
+                          type="color"
+                          value="#0000ff"
+                        />
+                      </div>
+                      <div class="stop-input-group mt-1">
+                        <label for="gradient_stop_1">Stop</label>
+                        <input
+                          id="gradient_stop_1"
+                          type="range"
+                          min="0"
+                          max="100"
+                          step="1"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                    <div class="color-input">
+                      <div class="color-input-group">
+                        <label for="gradient_color_2">Color 2</label>
+                        <input
+                          id="gradient_color_2"
+                          type="color"
+                          value="#ff0000"
+                        />
+                      </div>
+                      <div class="stop-input-group mt-1">
+                        <label for="gradient_stop_2">Stop</label>
+                        <input
+                          id="gradient_stop_2"
+                          type="range"
+                          min="0"
+                          max="100"
+                          step="1"
+                          value="50"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="result-vue"></div>
+                <div class="result-code">
+                  <label for="box_shadow_resultHex">HEX color</label>
+                  <textarea id="box_shadow_resultHex" rows="1"></textarea>
+                  <label for="box_shadow_resultRgba">RGBA color</label>
+                  <textarea id="box_shadow_resultRgba" rows="1"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="tab-item" id="polygon"><h2>polygon</h2></div>
           <div class="tab-item" id="shapes"><h2>shapes</h2></div>
         </div>
