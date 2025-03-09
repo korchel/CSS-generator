@@ -3,6 +3,7 @@ import $ from "jquery";
 import { applyTextShadow } from "./textShadow.js";
 import { applyBoxShadow } from "./boxShadow.js";
 import { applyGradient } from "./gradient.js";
+import { applyRadialGradient } from "./radialGradient.js";
 
 $(".tabs-wrapper").each(function () {
   let tabs = $(this);
@@ -30,3 +31,4 @@ $('[title="copy"]').on("click", function () {
 applyTextShadow();
 applyBoxShadow();
 applyGradient();
+applyRadialGradient();

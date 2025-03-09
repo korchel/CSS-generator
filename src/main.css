@@ -98,7 +98,7 @@ body {
 }
 
 .result-vue {
-  min-height: 180px;
+  min-height: 460px;
   max-width: 100%;
   background-color: white;
   display: flex;
@@ -320,4 +320,16 @@ input[type="color"]::-moz-color-swatch {
 
 input[type="checkbox"] {
   accent-color: var(--light);
+}
+
+/* radio */
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  accent-color: var(--dark);
 }
