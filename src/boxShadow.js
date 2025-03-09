@@ -42,7 +42,7 @@ const setStyles = () => {
   );
   $("#box_shadow_result").css("box-shadow", styles);
 
-  $("#box_shadow_resultHex").val(
+  $("#box_shadow_resultHex").text(
     `box-shadow: ${generateBoxShadowStyles(
       offsetX,
       offsetY,
@@ -52,13 +52,13 @@ const setStyles = () => {
       isInside
     )}`
   );
-  $("#box_shadow_resultRgba").val(`box-shadow: ${styles}`);
+  $("#box_shadow_resultRgba").text(`box-shadow: ${styles}`);
 };
 
 export const applyBoxShadow = () => {
   setStyles();
 
-  $("#box_shadow input").on("change", function () {
+  $("#box_shadow input").on("input", function () {
     setStyles();
   });
 };

@@ -11,23 +11,133 @@
     <div class="container">
       <div class="tabs-wrapper">
         <nav class="tabs">
-          <a class="tab active" href="text-shadow">text-shadow</a>
-          <a class="tab" href="border-radius">box-shadow</a>
-          <a class="tab" href="box-shadow">border-radius</a>
-          <a class="tab" href="gradient">gradient</a>
-          <a class="tab" href="polygon">polygon</a>
-          <a class="tab" href="shapes">shapes</a>
+          <a class="tab tab_active" href="linear_gradient">linear gradient </a>
+          <a class="tab" href="radial_gradient">radial gradient</a>
+          <a class="tab" href="conic_gradient">conic gradient</a>
+          <a class="tab" href="text-shadow">text-shadow</a>
+          <a class="tab" href="box-shadow">box-shadow</a>
         </nav>
         <div class="tabs-content">
-          <div class="tab-item" id="text_shadow">
-            <h2>Text-shadow generator</h2>
+          <div class="tab-item" id="linear_gradient">
+            <h2>Linear gradient</h2>
             <div class="flex">
+              <div class="col col_left">
+                <div class="checkbox-wrapper">
+                  <label for="gradient_repeating">Repeating</label>
+                  <input id="gradient_repeating" type="checkbox" />
+                </div>
+                <label for="gradient_angle">Angle</label>
+                <input
+                  id="gradient_angle"
+                  type="range"
+                  min="0"
+                  max="360"
+                  step="1"
+                  value="0"
+                />
+                <div class="colors">
+                  <div class="add-color">
+                    <h3>Colors</h3>
+                    <button
+                      type="button"
+                      id="gradient_add_color"
+                      class="icon-button icon-button_round-border"
+                      title="add color"
+                    >
+                      <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path
+                          d="M23,11H13V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V11H1a1,1,0,0,0-1,1H0a1,1,0,0,0,1,1H11V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V13H23a1,1,0,0,0,1-1h0A1,1,0,0,0,23,11Z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="color-inputs">
+                    <div class="color-input">
+                      <div class="color-input-group">
+                        <label for="gradient_color_1">Color</label
+                        ><input
+                          id="gradient_color_1"
+                          type="color"
+                          value="#0000ff"
+                        />
+                      </div>
+                      <div class="stop-input-group">
+                        <label for="gradient_stop_1">Stop</label>
+                        <input
+                          id="gradient_stop_1"
+                          type="range"
+                          min="0"
+                          max="100"
+                          step="1"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                    <div class="color-input">
+                      <div class="color-input-group">
+                        <label for="gradient_color_2">Color</label>
+                        <input
+                          id="gradient_color_2"
+                          type="color"
+                          value="#ff0000"
+                        />
+                      </div>
+                      <div class="stop-input-group">
+                        <label for="gradient_stop_2">Stop</label>
+                        <input
+                          id="gradient_stop_2"
+                          type="range"
+                          min="0"
+                          max="100"
+                          step="1"
+                          value="100"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="col">
+                <div class="result-vue" id="gradient_result"></div>
+                <div class="result-codes">
+                  <div class="result-code">
+                    <h3>Style</h3>
+                    <div
+                      id="gradient_result_code"
+                      class="code result-code__code"
+                    ></div>
+                    <button
+                      type="button"
+                      class="icon-button result-code__icon-button"
+                      title="copy"
+                      data-id="gradient_result_code"
+                    >
+                      <svg height="24" viewBox="0 0 24 24" width="24">
+                        <path
+                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-item" id="radial_gradient">
+            <h2>Radial gradient</h2>
+          </div>
+          <div class="tab-item" id="conic_gradient">
+            <h2>Conic gradient</h2>
+          </div>
+          <div class="tab-item" id="text_shadow">
+            <h2>Text-shadow</h2>
+            <div class="flex">
+              <div class="col col_left">
                 <label for="text_shadow_font_size">Font size</label>
                 <input
                   id="text_shadow_font_size"
                   type="range"
-                  min="8"
+                  min="16"
                   max="56"
                   step="1"
                   value="56"
@@ -72,13 +182,47 @@
               </div>
               <div class="col">
                 <div class="result-vue">
-                  <p id="text_shadow_result">Result</p>
+                  <div id="text_shadow_result" contenteditable>Result</div>
                 </div>
-                <div class="result-code">
-                  <label for="text_shadow_resultHex">HEX color</label>
-                  <textarea id="text_shadow_resultHex" rows="1"></textarea>
-                  <label for="text_shadow_resultRgba">RGBA color</label>
-                  <textarea id="text_shadow_resultRgba" rows="1"></textarea>
+                <div class="result-codes">
+                  <div class="result-code">
+                    <h3>HEX color</h3>
+                    <div
+                      id="text_shadow_resultHex"
+                      class="code result-code__code"
+                    ></div>
+                    <button
+                      type="button"
+                      class="icon-button result-code__icon-button"
+                      title="copy"
+                      data-id="text_shadow_resultHex"
+                    >
+                      <svg height="24" viewBox="0 0 24 24" width="24">
+                        <path
+                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="result-code">
+                    <h3>RGBA color</h3>
+                    <div
+                      id="text_shadow_resultRgba"
+                      class="code result-code__code"
+                    ></div>
+                    <button
+                      type="button"
+                      class="icon-button result-code__icon-button"
+                      title="copy"
+                      data-id="text_shadow_resultRgba"
+                    >
+                      <svg height="24" viewBox="0 0 24 24" width="24">
+                        <path
+                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -86,9 +230,11 @@
           <div class="tab-item" id="box_shadow">
             <h2>Box shadow</h2>
             <div class="flex">
-              <div class="col">
-                <label for="box_shadow_inside">Inside</label
-                ><input id="box_shadow_inside" type="checkbox" />
+              <div class="col col_left">
+                <div class="checkbox-wrapper">
+                  <label for="box_shadow_inside">Inside</label>
+                  <input id="box_shadow_inside" type="checkbox" />
+                </div>
                 <label for="box_shadow_offset_x">Offset X</label>
                 <input
                   id="box_shadow_offset_x"
@@ -140,94 +286,49 @@
                 <div class="result-vue">
                   <div id="box_shadow_result"></div>
                 </div>
-                <div class="result-code">
-                  <label for="box_shadow_resultHex">HEX color</label>
-                  <textarea id="box_shadow_resultHex" rows="1"></textarea>
-                  <label for="box_shadow_resultRgba">RGBA color</label>
-                  <textarea id="box_shadow_resultRgba" rows="1"></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="tab-item" id="border_box"><h2>box-shadow</h2></div>
-          <div class="tab-item" id="gradient">
-            <h2>gradient</h2>
-            <div class="flex">
-              <div class="col">
-                <label for="gradient_repeating">Repeating</label
-                ><input id="gradient_repeating" type="checkbox" />
-                <label for="gradient_angle">Angle</label>
-                <input
-                  id="gradient_angle"
-                  type="range"
-                  min="0"
-                  max="360"
-                  step="1"
-                  value="0"
-                />
-                <div class="colors">
-                  <div>
-                    <h3>Colors</h3>
-                    <button type="button" id="gradient_add_color">
-                      &plus;
+                <div class="result-codes">
+                  <div class="result-code">
+                    <h3>HEX color</h3>
+                    <div
+                      id="box_shadow_resultHex"
+                      class="code result-code__code"
+                    ></div>
+                    <button
+                      type="button"
+                      class="icon-button result-code__icon-button"
+                      title="copy"
+                      data-id="box_shadow_resultHex"
+                    >
+                      <svg height="24" viewBox="0 0 24 24" width="24">
+                        <path
+                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                        />
+                      </svg>
                     </button>
                   </div>
-                  <div class="color-inputs">
-                    <div class="color-input">
-                      <div class="color-input-group">
-                        <label for="gradient_color_1">Color 1</label
-                        ><input
-                          id="gradient_color_1"
-                          type="color"
-                          value="#0000ff"
+                  <div class="result-code">
+                    <h3>RGBA color</h3>
+                    <div
+                      id="box_shadow_resultRgba"
+                      class="code result-code__code"
+                    ></div>
+                    <button
+                      type="button"
+                      class="icon-button result-code__icon-button"
+                      title="copy"
+                      data-id="box_shadow_resultRgba"
+                    >
+                      <svg height="24" viewBox="0 0 24 24" width="24">
+                        <path
+                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
                         />
-                      </div>
-                      <div class="stop-input-group mt-1">
-                        <label for="gradient_stop_1">Stop</label>
-                        <input
-                          id="gradient_stop_1"
-                          type="range"
-                          min="0"
-                          max="100"
-                          step="1"
-                          value="0"
-                        />
-                      </div>
-                    </div>
-                    <div class="color-input">
-                      <div class="color-input-group">
-                        <label for="gradient_color_2">Color 2</label>
-                        <input
-                          id="gradient_color_2"
-                          type="color"
-                          value="#ff0000"
-                        />
-                      </div>
-                      <div class="stop-input-group mt-1">
-                        <label for="gradient_stop_2">Stop</label>
-                        <input
-                          id="gradient_stop_2"
-                          type="range"
-                          min="0"
-                          max="100"
-                          step="1"
-                          value="50"
-                        />
-                      </div>
-                    </div>
+                      </svg>
+                    </button>
                   </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="result-vue" id="gradient_result"></div>
-                <div class="result-code">
-                  <textarea id="gradient_result_code" rows="1"></textarea>
                 </div>
               </div>
             </div>
           </div>
-          <div class="tab-item" id="polygon"><h2>polygon</h2></div>
-          <div class="tab-item" id="shapes"><h2>shapes</h2></div>
         </div>
       </div>
     </div>

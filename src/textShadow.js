@@ -27,7 +27,7 @@ const setStyles = () => {
     .css("fontSize", `${fontSize}px`)
     .css("text-shadow", styles);
 
-  $("#text_shadow_resultHex").val(
+  $("#text_shadow_resultHex").text(
     `text-shadow: ${generateTextShadowStyles(
       offsetX,
       offsetY,
@@ -35,13 +35,13 @@ const setStyles = () => {
       color
     )}`
   );
-  $("#text_shadow_resultRgba").val(`text-shadow: ${styles}`);
+  $("#text_shadow_resultRgba").text(`text-shadow: ${styles}`);
 };
 
 export const applyTextShadow = () => {
   setStyles();
 
-  $("#text_shadow input").on("change", function () {
+  $("#text_shadow input").on("input", function () {
     setStyles();
   });
 };

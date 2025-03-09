@@ -24,7 +24,7 @@ const setStyles = () => {
 
   const styles = generateGradientStyle(angle, colors, isRepeating);
   $("#gradient_result").css("background-image", styles);
-  $("#gradient_result_code").val(`background-image: ${styles}`);
+  $("#gradient_result_code").text(`background-image: ${styles}`);
 };
 
 export const applyGradient = () => {
@@ -40,7 +40,7 @@ export const applyGradient = () => {
     newColorInput
       .find(".color-input-group label")
       .attr("for", `gradient_color_${colorInputsCount + 1}`)
-      .text(`Color ${colorInputsCount + 1}`);
+      .text("Color");
     newColorInput
       .find(".color-input-group input")
       .attr("id", `gradient_color_${colorInputsCount + 1}`)
@@ -51,20 +51,21 @@ export const applyGradient = () => {
     newColorInput
       .find(".stop-input-group input")
       .attr("id", `gradient_stop_${colorInputsCount + 1}`)
-      .on("change", setStyles);
+      .on("input", setStyles);
 
     const removeColorButton = $(
-      '<button class="remove-color">&#10006;</button>'
+      '<button class="icon-button stop-input-group__icon-button"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M18,6h0a1,1,0,0,0-1.414,0L12,10.586,7.414,6A1,1,0,0,0,6,6H6A1,1,0,0,0,6,7.414L10.586,12,6,16.586A1,1,0,0,0,6,18H6a1,1,0,0,0,1.414,0L12,13.414,16.586,18A1,1,0,0,0,18,18h0a1,1,0,0,0,0-1.414L13.414,12,18,7.414A1,1,0,0,0,18,6Z"/></svg></button>'
     );
     removeColorButton.on("click", function () {
       newColorInput.remove();
       setStyles();
     });
-    newColorInput.find(".color-input-group").append(removeColorButton);
+    newColorInput.find(".stop-input-group").append(removeColorButton);
     colorInputs.append(newColorInput);
+    setStyles();
   });
 
-  $("#gradient input").on("change", function () {
+  $("#linear_gradient input").on("input", function () {
     setStyles();
   });
 };
