@@ -131,20 +131,56 @@
                   <label for="radial_gradient_repeating">Repeating</label>
                   <input id="radial_gradient_repeating" type="checkbox" />
                 </div>
-                <div class="radio-group">
+                <h3>Shape</h3>
+                <div class="grid-group">
                   <input
                     type="radio"
                     id="radial_gradient_ellipse"
                     name="radial_gradient_shape"
+                    value="ellipse"
+                    checked
                   />
                   <label for="radial_gradient_ellipse">Ellipse</label>
                   <input
                     type="radio"
                     id="radial_gradient_circle"
                     name="radial_gradient_shape"
+                    value="circle"
                   />
                   <label for="radial_gradient_circle">Circle</label>
+                  <div class="grid-group_2cols">
+                    <label for="radial_gradient_size_x">Size X</label>
+                    <input
+                      id="radial_gradient_size_x"
+                      type="range"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value="100"
+                    />
+                    <label for="radial_gradient_size_y">Size Y</label>
+                    <input
+                      id="radial_gradient_size_y"
+                      type="range"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value="100"
+                    />
+                  </div>
+                  <div class="grid-group_2cols">
+                    <label for="radial_gradient_size">Size</label>
+                    <input
+                      id="radial_gradient_size"
+                      type="range"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value="100"
+                    />
+                  </div>
                 </div>
+
                 <div class="colors">
                   <div class="add-color">
                     <h3>Colors</h3>
@@ -208,7 +244,35 @@
                 </div>
               </div>
               <div class="col">
-                <div class="result-vue" id="radial_gradient_result"></div>
+                <div id="radial_gradient_result" class="radial-gradient-result">
+                  <div class="radial-gradient-result__vertical-slider">
+                    <input
+                      id="radial_gradient_position_y"
+                      type="range"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value="50"
+                    />
+                    <label
+                      for="radial_gradient_position_y"
+                      class="vertical-slider__label"
+                      >Position Y</label
+                    >
+                  </div>
+                  <div class="radial-gradient-result__horisontal-slider">
+                    <input
+                      id="radial_gradient_position_x"
+                      type="range"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value="50"
+                    />
+                    <label for="radial_gradient_position_x">Position X</label>
+                  </div>
+                </div>
+
                 <div class="result-codes">
                   <div class="result-code">
                     <h3>Style</h3>

@@ -232,6 +232,35 @@ input[id^="gradient_stop"] {
   text-align: center;
 }
 
+/* radial gradient */
+
+.radial-gradient-result {
+  position: relative;
+  height: 400px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.radial-gradient-result__vertical-slider {
+  position: absolute;
+  transform-origin: top left;
+  left: -38px;
+  top: 0;
+  transform: rotate(90deg) translateY(-100%);
+  width: 400px;
+}
+
+.vertical-slider__label {
+  display: block;
+  transform: rotate(180deg);
+}
+
+.radial-gradient-result__horisontal-slider {
+  position: absolute;
+  bottom: -38px;
+  width: 100%;
+}
+
 /* slider */
 
 input[type="range"] {
@@ -324,9 +353,14 @@ input[type="checkbox"] {
 
 /* radio */
 
-.radio-group {
-  display: flex;
+.grid-group {
+  display: grid;
+  grid-template-columns: 10px 1fr 10px 1fr;
   gap: 1rem;
+}
+
+.grid-group_2cols {
+  grid-column: span 2;
 }
 
 input[type="radio"] {

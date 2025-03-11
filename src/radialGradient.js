@@ -1,17 +1,36 @@
 import $ from "jquery";
 
-const generateGradientStyle = (shape, size, position, color, isRepeating) => {
+const generateGradientStyle = (
+  shape,
+  circleSize,
+  ellipseSizeX,
+  ellipseSizeY,
+  positionX,
+  positionY,
+  colors,
+  isRepeating
+) => {
+  const size =
+    shape === "ellipse"
+      ? `${ellipseSizeX}% ${ellipseSizeY}%`
+      : `${circleSize}px`;
+  console.log(size);
   const colorString = colors
     .map(({ color, stop }) => `${color} ${stop}%`)
     .join(", ");
   return `${
     isRepeating ? "repeating-" : ""
-  }radial-gradient(${angle}deg, ${colorString})`;
+  }radial-gradient(${shape} at ${positionX}% ${positionY}%, ${colorString})`;
 };
 
 const setStyles = () => {
   const isRepeating = $("#radial_gradient_repeating").is(":checked");
-
+  const shape = $("input:radio[name=radial_gradient_shape]:checked").val();
+  const positionX = $("#radial_gradient_position_x").val();
+  const positionY = $("#radial_gradient_position_y").val();
+  const circleSize = $("#radial_gradient_size").val();
+  const ellipseSizeX = $("#radial_gradient_size_x").val();
+  const ellipseSizeY = $("#radial_gradient_size_y").val();
   const stopInputs = $('[id^="radial_gradient_stop"]');
   const colors = $('[id^="radial_gradient_color"]')
     .map((i, colorInput) => {
@@ -22,12 +41,23 @@ const setStyles = () => {
     })
     .get();
 
-  const styles = generateGradientStyle(angle, colors, isRepeating);
+  const styles = generateGradientStyle(
+    shape,
+    circleSize,
+    ellipseSizeX,
+    ellipseSizeY,
+    positionX,
+    positionY,
+    colors,
+    isRepeating
+  );
   $("#radial_gradient_result").css("background-image", styles);
-  $("#radial_radient_result_code").text(`background-image: ${styles}`);
+  $("#radial_gradient_result_code").text(`background-image: ${styles}`);
 };
 
 export const applyRadialGradient = () => {
+  setStyles();
+
   $("#radial_gradient_add_color").on("click", function () {
     const colorInputs = $(this).parent().siblings(".color-inputs");
     const colorInputsCount = colorInputs.children().length;
@@ -48,7 +78,7 @@ export const applyRadialGradient = () => {
       .attr("for", `radial_gradient_stop_${colorInputsCount + 1}`);
     newColorInput
       .find(".stop-input-group input")
-      .attr("id", `radial_radient_stop_${colorInputsCount + 1}`)
+      .attr("id", `radial_gradient_stop_${colorInputsCount + 1}`)
       .on("input", setStyles);
 
     const removeColorButton = $(
@@ -60,6 +90,10 @@ export const applyRadialGradient = () => {
     });
     newColorInput.find(".stop-input-group").append(removeColorButton);
     colorInputs.append(newColorInput);
+    setStyles();
+  });
+
+  $("#radial_gradient input").on("input", function () {
     setStyles();
   });
 };
