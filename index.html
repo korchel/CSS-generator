@@ -129,7 +129,19 @@
               <div class="col col_left">
                 <div class="checkbox-wrapper">
                   <label for="radial_gradient_repeating">Repeating</label>
-                  <input id="radial_gradient_repeating" type="checkbox" />
+                  <input
+                    id="radial_gradient_repeating"
+                    type="checkbox"
+                    checked
+                  />
+                </div>
+                <div class="checkbox-wrapper">
+                  <label for="radial_gradient_hard_stops">Hard stops</label>
+                  <input
+                    id="radial_gradient_hard_stops"
+                    type="checkbox"
+                    checked
+                  />
                 </div>
                 <h3>Shape</h3>
                 <div class="grid-group">
@@ -138,7 +150,6 @@
                     id="radial_gradient_ellipse"
                     name="radial_gradient_shape"
                     value="ellipse"
-                    checked
                   />
                   <label for="radial_gradient_ellipse">Ellipse</label>
                   <input
@@ -146,39 +157,9 @@
                     id="radial_gradient_circle"
                     name="radial_gradient_shape"
                     value="circle"
+                    checked
                   />
                   <label for="radial_gradient_circle">Circle</label>
-                  <div class="grid-group_2cols">
-                    <label for="radial_gradient_size_x">Size X</label>
-                    <input
-                      id="radial_gradient_size_x"
-                      type="range"
-                      min="0"
-                      max="100"
-                      step="1"
-                      value="100"
-                    />
-                    <label for="radial_gradient_size_y">Size Y</label>
-                    <input
-                      id="radial_gradient_size_y"
-                      type="range"
-                      min="0"
-                      max="100"
-                      step="1"
-                      value="100"
-                    />
-                  </div>
-                  <div class="grid-group_2cols">
-                    <label for="radial_gradient_size">Size</label>
-                    <input
-                      id="radial_gradient_size"
-                      type="range"
-                      min="0"
-                      max="100"
-                      step="1"
-                      value="100"
-                    />
-                  </div>
                 </div>
 
                 <div class="colors">
@@ -204,7 +185,7 @@
                         ><input
                           id="radial_gradient_color_1"
                           type="color"
-                          value="#0000ff"
+                          value="#0008ff"
                         />
                       </div>
                       <div class="stop-input-group">
@@ -215,7 +196,7 @@
                           min="0"
                           max="100"
                           step="1"
-                          value="0"
+                          value="20"
                         />
                       </div>
                     </div>
@@ -225,7 +206,7 @@
                         <input
                           id="radial_gradient_color_2"
                           type="color"
-                          value="#ff0000"
+                          value="#0084ff"
                         />
                       </div>
                       <div class="stop-input-group">
@@ -236,7 +217,7 @@
                           min="0"
                           max="100"
                           step="1"
-                          value="100"
+                          value="40"
                         />
                       </div>
                     </div>

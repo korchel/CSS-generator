@@ -2,21 +2,13 @@ import $ from "jquery";
 
 const generateGradientStyle = (
   shape,
-  circleSize,
-  ellipseSizeX,
-  ellipseSizeY,
   positionX,
   positionY,
   colors,
   isRepeating
 ) => {
-  const size =
-    shape === "ellipse"
-      ? `${ellipseSizeX}% ${ellipseSizeY}%`
-      : `${circleSize}px`;
-  console.log(size);
   const colorString = colors
-    .map(({ color, stop }) => `${color} ${stop}%`)
+    .map(({ color, stop }) => `${color} ${stop}`)
     .join(", ");
   return `${
     isRepeating ? "repeating-" : ""
@@ -25,31 +17,35 @@ const generateGradientStyle = (
 
 const setStyles = () => {
   const isRepeating = $("#radial_gradient_repeating").is(":checked");
+  const hasHardStops = $("#radial_gradient_hard_stops").is(":checked");
   const shape = $("input:radio[name=radial_gradient_shape]:checked").val();
   const positionX = $("#radial_gradient_position_x").val();
   const positionY = $("#radial_gradient_position_y").val();
-  const circleSize = $("#radial_gradient_size").val();
-  const ellipseSizeX = $("#radial_gradient_size_x").val();
-  const ellipseSizeY = $("#radial_gradient_size_y").val();
   const stopInputs = $('[id^="radial_gradient_stop"]');
   const colors = $('[id^="radial_gradient_color"]')
     .map((i, colorInput) => {
+      if (hasHardStops) {
+        const stop1 = i === 0 ? 0 : $(stopInputs[i - 1]).val();
+        const stop2 = $(stopInputs[i]).val();
+        return {
+          color: $(colorInput).val(),
+          stop: `${stop1}% ${stop2}%`,
+        };
+      }
       return {
         color: $(colorInput).val(),
-        stop: $(stopInputs[i]).val(),
+        stop: `${$(stopInputs[i]).val()}%`,
       };
     })
     .get();
 
   const styles = generateGradientStyle(
     shape,
-    circleSize,
-    ellipseSizeX,
-    ellipseSizeY,
     positionX,
     positionY,
     colors,
-    isRepeating
+    isRepeating,
+    hasHardStops
   );
   $("#radial_gradient_result").css("background-image", styles);
   $("#radial_gradient_result_code").text(`background-image: ${styles}`);
