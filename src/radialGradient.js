@@ -54,6 +54,18 @@ const setStyles = () => {
 export const applyRadialGradient = () => {
   setStyles();
 
+  $("[href='radial_gradient']").on("click", () => {
+    $("#radial_gradient_position_y").width(
+      $("#radial_gradient_result").height()
+    );
+  });
+
+  $(window).on("resize", function () {
+    $("#radial_gradient_position_y").width(
+      $("#radial_gradient_result").height()
+    );
+  });
+
   $("#radial_gradient_add_color").on("click", function () {
     const colorInputs = $(this).parent().siblings(".color-inputs");
     const colorInputsCount = colorInputs.children().length;

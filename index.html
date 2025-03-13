@@ -8,475 +8,470 @@
     <title>CSS Generator</title>
   </head>
   <body>
-    <div class="container">
-      <div class="tabs-wrapper">
-        <nav class="tabs">
-          <a class="tab tab_active" href="linear_gradient">linear gradient </a>
-          <a class="tab" href="radial_gradient">radial gradient</a>
-          <a class="tab" href="conic_gradient">conic gradient</a>
-          <a class="tab" href="text-shadow">text-shadow</a>
-          <a class="tab" href="box-shadow">box-shadow</a>
-        </nav>
-        <div class="tabs-content">
-          <div class="tab-item" id="linear_gradient">
-            <h2>Linear gradient</h2>
-            <div class="flex">
-              <div class="col col_left">
-                <div class="checkbox-wrapper">
-                  <label for="gradient_repeating">Repeating</label>
-                  <input id="gradient_repeating" type="checkbox" />
-                </div>
-                <label for="gradient_angle">Angle</label>
-                <input
-                  id="gradient_angle"
-                  type="range"
-                  min="0"
-                  max="360"
-                  step="1"
-                  value="0"
-                />
-                <div class="colors">
-                  <div class="add-color">
-                    <h3>Colors</h3>
-                    <button
-                      type="button"
-                      id="gradient_add_color"
-                      class="icon-button icon-button_round-border"
-                      title="add color"
-                    >
-                      <svg viewBox="0 0 24 24" width="20" height="20">
-                        <path
-                          d="M23,11H13V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V11H1a1,1,0,0,0-1,1H0a1,1,0,0,0,1,1H11V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V13H23a1,1,0,0,0,1-1h0A1,1,0,0,0,23,11Z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="color-inputs">
-                    <div class="color-input">
-                      <div class="color-input-group">
-                        <label for="gradient_color_1">Color</label
-                        ><input
-                          id="gradient_color_1"
-                          type="color"
-                          value="#0000ff"
-                        />
-                      </div>
-                      <div class="stop-input-group">
-                        <label for="gradient_stop_1">Stop</label>
-                        <input
-                          id="gradient_stop_1"
-                          type="range"
-                          min="0"
-                          max="100"
-                          step="1"
-                          value="0"
-                        />
-                      </div>
-                    </div>
-                    <div class="color-input">
-                      <div class="color-input-group">
-                        <label for="gradient_color_2">Color</label>
-                        <input
-                          id="gradient_color_2"
-                          type="color"
-                          value="#ff0000"
-                        />
-                      </div>
-                      <div class="stop-input-group">
-                        <label for="gradient_stop_2">Stop</label>
-                        <input
-                          id="gradient_stop_2"
-                          type="range"
-                          min="0"
-                          max="100"
-                          step="1"
-                          value="100"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="result-vue" id="gradient_result"></div>
-                <div class="result-codes">
-                  <div class="result-code">
-                    <h3>Style</h3>
-                    <div
-                      id="gradient_result_code"
-                      class="code result-code__code"
-                    ></div>
-                    <button
-                      type="button"
-                      class="icon-button result-code__icon-button"
-                      title="copy"
-                      data-id="gradient_result_code"
-                    >
-                      <svg height="24" viewBox="0 0 24 24" width="24">
-                        <path
-                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="tab-item" id="radial_gradient">
-            <h2>Radial gradient</h2>
-            <div class="flex">
-              <div class="col col_left">
-                <div class="checkbox-wrapper">
-                  <label for="radial_gradient_repeating">Repeating</label>
-                  <input
-                    id="radial_gradient_repeating"
-                    type="checkbox"
-                    checked
-                  />
-                </div>
-                <div class="checkbox-wrapper">
-                  <label for="radial_gradient_hard_stops">Hard stops</label>
-                  <input
-                    id="radial_gradient_hard_stops"
-                    type="checkbox"
-                    checked
-                  />
-                </div>
-                <h3>Shape</h3>
-                <div class="grid-group">
-                  <input
-                    type="radio"
-                    id="radial_gradient_ellipse"
-                    name="radial_gradient_shape"
-                    value="ellipse"
-                  />
-                  <label for="radial_gradient_ellipse">Ellipse</label>
-                  <input
-                    type="radio"
-                    id="radial_gradient_circle"
-                    name="radial_gradient_shape"
-                    value="circle"
-                    checked
-                  />
-                  <label for="radial_gradient_circle">Circle</label>
-                </div>
+    <div class="tabs-wrapper">
+      <nav class="tabs">
+        <a class="tab tab_active" href="linear_gradient">linear gradient </a>
+        <a class="tab" href="radial_gradient">radial gradient</a>
+        <a class="tab" href="conic_gradient">conic gradient</a>
+        <a class="tab" href="text-shadow">text-shadow</a>
+        <a class="tab" href="box-shadow">box-shadow</a>
+      </nav>
 
-                <div class="colors">
-                  <div class="add-color">
-                    <h3>Colors</h3>
-                    <button
-                      type="button"
-                      id="radial_gradient_add_color"
-                      class="icon-button icon-button_round-border"
-                      title="add color"
-                    >
-                      <svg viewBox="0 0 24 24" width="20" height="20">
-                        <path
-                          d="M23,11H13V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V11H1a1,1,0,0,0-1,1H0a1,1,0,0,0,1,1H11V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V13H23a1,1,0,0,0,1-1h0A1,1,0,0,0,23,11Z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="color-inputs">
-                    <div class="color-input">
-                      <div class="color-input-group">
-                        <label for="radial_gradient_color_1">Color</label
-                        ><input
-                          id="radial_gradient_color_1"
-                          type="color"
-                          value="#0008ff"
-                        />
-                      </div>
-                      <div class="stop-input-group">
-                        <label for="radial_gradient_stop_1">Stop</label>
-                        <input
-                          id="radial_gradient_stop_1"
-                          type="range"
-                          min="0"
-                          max="100"
-                          step="1"
-                          value="20"
-                        />
-                      </div>
+      <div class="tabs-content">
+        <div class="tab-item" id="linear_gradient">
+          <h2>Linear gradient</h2>
+          <div class="flex">
+            <div class="col col_left">
+              <div class="checkbox-wrapper">
+                <label for="gradient_repeating">Repeating</label>
+                <input id="gradient_repeating" type="checkbox" />
+              </div>
+              <label for="gradient_angle">Angle</label>
+              <input
+                id="gradient_angle"
+                type="range"
+                min="0"
+                max="360"
+                step="1"
+                value="0"
+              />
+              <div class="colors">
+                <div class="add-color">
+                  <h3>Colors</h3>
+                  <button
+                    type="button"
+                    id="gradient_add_color"
+                    class="icon-button icon-button_round-border"
+                    title="add color"
+                  >
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path
+                        d="M23,11H13V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V11H1a1,1,0,0,0-1,1H0a1,1,0,0,0,1,1H11V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V13H23a1,1,0,0,0,1-1h0A1,1,0,0,0,23,11Z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="color-inputs">
+                  <div class="color-input">
+                    <div class="color-input-group">
+                      <label for="gradient_color_1">Color</label
+                      ><input
+                        id="gradient_color_1"
+                        type="color"
+                        value="#0000ff"
+                      />
                     </div>
-                    <div class="color-input">
-                      <div class="color-input-group">
-                        <label for="radial_gradient_color_2">Color</label>
-                        <input
-                          id="radial_gradient_color_2"
-                          type="color"
-                          value="#0084ff"
-                        />
-                      </div>
-                      <div class="stop-input-group">
-                        <label for="radial_gradient_stop_2">Stop</label>
-                        <input
-                          id="radial_gradient_stop_2"
-                          type="range"
-                          min="0"
-                          max="100"
-                          step="1"
-                          value="40"
-                        />
-                      </div>
+                    <div class="stop-input-group">
+                      <label for="gradient_stop_1">Stop</label>
+                      <input
+                        id="gradient_stop_1"
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="1"
+                        value="0"
+                      />
+                    </div>
+                  </div>
+                  <div class="color-input">
+                    <div class="color-input-group">
+                      <label for="gradient_color_2">Color</label>
+                      <input
+                        id="gradient_color_2"
+                        type="color"
+                        value="#ff0000"
+                      />
+                    </div>
+                    <div class="stop-input-group">
+                      <label for="gradient_stop_2">Stop</label>
+                      <input
+                        id="gradient_stop_2"
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="1"
+                        value="100"
+                      />
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col">
-                <div id="radial_gradient_result" class="radial-gradient-result">
-                  <div class="radial-gradient-result__vertical-slider">
-                    <input
-                      id="radial_gradient_position_y"
-                      type="range"
-                      min="0"
-                      max="100"
-                      step="1"
-                      value="50"
-                    />
-                    <label
-                      for="radial_gradient_position_y"
-                      class="vertical-slider__label"
-                      >Position Y</label
-                    >
-                  </div>
-                  <div class="radial-gradient-result__horisontal-slider">
-                    <input
-                      id="radial_gradient_position_x"
-                      type="range"
-                      min="0"
-                      max="100"
-                      step="1"
-                      value="50"
-                    />
-                    <label for="radial_gradient_position_x">Position X</label>
-                  </div>
+            </div>
+            <div class="col">
+              <div class="result-vue" id="gradient_result"></div>
+              <div class="result-codes">
+                <div class="result-code">
+                  <h3>Style</h3>
+                  <div
+                    id="gradient_result_code"
+                    class="code result-code__code"
+                  ></div>
+                  <button
+                    type="button"
+                    class="icon-button result-code__icon-button"
+                    title="copy"
+                    data-id="gradient_result_code"
+                  >
+                    <svg height="24" viewBox="0 0 24 24" width="24">
+                      <path
+                        d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                      />
+                    </svg>
+                  </button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-item" id="radial_gradient">
+          <h2>Radial gradient</h2>
+          <div class="flex">
+            <div class="col col_left">
+              <div class="checkbox-wrapper">
+                <label for="radial_gradient_repeating">Repeating</label>
+                <input id="radial_gradient_repeating" type="checkbox" checked />
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="radial_gradient_hard_stops">Hard stops</label>
+                <input
+                  id="radial_gradient_hard_stops"
+                  type="checkbox"
+                  checked
+                />
+              </div>
+              <h3>Shape</h3>
+              <div class="grid-group">
+                <input
+                  type="radio"
+                  id="radial_gradient_ellipse"
+                  name="radial_gradient_shape"
+                  value="ellipse"
+                />
+                <label for="radial_gradient_ellipse">Ellipse</label>
+                <input
+                  type="radio"
+                  id="radial_gradient_circle"
+                  name="radial_gradient_shape"
+                  value="circle"
+                  checked
+                />
+                <label for="radial_gradient_circle">Circle</label>
+              </div>
 
-                <div class="result-codes">
-                  <div class="result-code">
-                    <h3>Style</h3>
-                    <div
-                      id="radial_gradient_result_code"
-                      class="code result-code__code"
-                    ></div>
-                    <button
-                      type="button"
-                      class="icon-button result-code__icon-button"
-                      title="copy"
-                      data-id="radial_gradient_result_code"
-                    >
-                      <svg height="24" viewBox="0 0 24 24" width="24">
-                        <path
-                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
-                        />
-                      </svg>
-                    </button>
+              <div class="colors">
+                <div class="add-color">
+                  <h3>Colors</h3>
+                  <button
+                    type="button"
+                    id="radial_gradient_add_color"
+                    class="icon-button icon-button_round-border"
+                    title="add color"
+                  >
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path
+                        d="M23,11H13V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V11H1a1,1,0,0,0-1,1H0a1,1,0,0,0,1,1H11V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V13H23a1,1,0,0,0,1-1h0A1,1,0,0,0,23,11Z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="color-inputs">
+                  <div class="color-input">
+                    <div class="color-input-group">
+                      <label for="radial_gradient_color_1">Color</label
+                      ><input
+                        id="radial_gradient_color_1"
+                        type="color"
+                        value="#0008ff"
+                      />
+                    </div>
+                    <div class="stop-input-group">
+                      <label for="radial_gradient_stop_1">Stop</label>
+                      <input
+                        id="radial_gradient_stop_1"
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="1"
+                        value="20"
+                      />
+                    </div>
+                  </div>
+                  <div class="color-input">
+                    <div class="color-input-group">
+                      <label for="radial_gradient_color_2">Color</label>
+                      <input
+                        id="radial_gradient_color_2"
+                        type="color"
+                        value="#0084ff"
+                      />
+                    </div>
+                    <div class="stop-input-group">
+                      <label for="radial_gradient_stop_2">Stop</label>
+                      <input
+                        id="radial_gradient_stop_2"
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="1"
+                        value="40"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="tab-item" id="conic_gradient">
-            <h2>Conic gradient</h2>
-          </div>
-          <div class="tab-item" id="text_shadow">
-            <h2>Text-shadow</h2>
-            <div class="flex">
-              <div class="col col_left">
-                <label for="text_shadow_font_size">Font size</label>
-                <input
-                  id="text_shadow_font_size"
-                  type="range"
-                  min="16"
-                  max="56"
-                  step="1"
-                  value="56"
-                />
-                <label for="text_shadow_offset_x">Offset X</label>
-                <input
-                  id="text_shadow_offset_x"
-                  type="range"
-                  min="-15"
-                  max="15"
-                  step="1"
-                  value="8"
-                />
-                <label for="text_shadow_offset_y">Offset Y</label>
-                <input
-                  id="text_shadow_offset_y"
-                  type="range"
-                  min="-15"
-                  max="15"
-                  step="1"
-                  value="8"
-                />
-                <label for="text_shadow_blur_radius">Blur radius</label>
-                <input
-                  id="text_shadow_blur_radius"
-                  type="range"
-                  min="0"
-                  max="15"
-                  step="1"
-                  value="0"
-                />
-                <label for="text_shadow_opacity">Opacity</label>
-                <input
-                  id="text_shadow_opacity"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.01"
-                />
-                <label for="text_shadow_color">Color</label>
-                <input id="text_shadow_color" type="color" value="#ffaa00" />
-              </div>
-              <div class="col">
-                <div class="result-vue">
-                  <div id="text_shadow_result" contenteditable>Result</div>
+            <div class="col">
+              <div id="radial_gradient_result" class="radial-gradient-result">
+                <div class="radial-gradient-result__vertical-slider">
+                  <input
+                    id="radial_gradient_position_y"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="1"
+                    value="50"
+                  />
+                  <label
+                    for="radial_gradient_position_y"
+                    class="vertical-slider__label"
+                    >Position Y</label
+                  >
                 </div>
-                <div class="result-codes">
-                  <div class="result-code">
-                    <h3>HEX color</h3>
-                    <div
-                      id="text_shadow_resultHex"
-                      class="code result-code__code"
-                    ></div>
-                    <button
-                      type="button"
-                      class="icon-button result-code__icon-button"
-                      title="copy"
-                      data-id="text_shadow_resultHex"
-                    >
-                      <svg height="24" viewBox="0 0 24 24" width="24">
-                        <path
-                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="result-code">
-                    <h3>RGBA color</h3>
-                    <div
-                      id="text_shadow_resultRgba"
-                      class="code result-code__code"
-                    ></div>
-                    <button
-                      type="button"
-                      class="icon-button result-code__icon-button"
-                      title="copy"
-                      data-id="text_shadow_resultRgba"
-                    >
-                      <svg height="24" viewBox="0 0 24 24" width="24">
-                        <path
-                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                <div class="radial-gradient-result__horisontal-slider">
+                  <input
+                    id="radial_gradient_position_x"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="1"
+                    value="50"
+                  />
+                  <label for="radial_gradient_position_x">Position X</label>
+                </div>
+              </div>
+
+              <div class="result-codes">
+                <div class="result-code">
+                  <h3>Style</h3>
+                  <div
+                    id="radial_gradient_result_code"
+                    class="code result-code__code"
+                  ></div>
+                  <button
+                    type="button"
+                    class="icon-button result-code__icon-button"
+                    title="copy"
+                    data-id="radial_gradient_result_code"
+                  >
+                    <svg height="24" viewBox="0 0 24 24" width="24">
+                      <path
+                        d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="tab-item" id="box_shadow">
-            <h2>Box shadow</h2>
-            <div class="flex">
-              <div class="col col_left">
-                <div class="checkbox-wrapper">
-                  <label for="box_shadow_inside">Inside</label>
-                  <input id="box_shadow_inside" type="checkbox" />
-                </div>
-                <label for="box_shadow_offset_x">Offset X</label>
-                <input
-                  id="box_shadow_offset_x"
-                  type="range"
-                  min="-15"
-                  max="15"
-                  step="1"
-                  value="8"
-                />
-                <label for="box_shadow_offset_y">Offset Y</label>
-                <input
-                  id="box_shadow_offset_y"
-                  type="range"
-                  min="-15"
-                  max="15"
-                  step="1"
-                  value="8"
-                />
-                <label for="box_shadow_blur_radius">Blur radius</label>
-                <input
-                  id="box_shadow_blur_radius"
-                  type="range"
-                  min="0"
-                  max="15"
-                  step="1"
-                  value="0"
-                />
-                <label for="box_shadow_spread_radius">Spread radius</label>
-                <input
-                  id="box_shadow_spread_radius"
-                  type="range"
-                  min="0"
-                  max="15"
-                  step="1"
-                  value="0"
-                />
-                <label for="box_shadow_opacity">Opacity</label>
-                <input
-                  id="box_shadow_opacity"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.01"
-                />
-                <label for="box_shadow_color">Color</label>
-                <input id="box_shadow_color" type="color" value="#ffaa00" />
+        </div>
+        <div class="tab-item" id="conic_gradient">
+          <h2>Conic gradient</h2>
+        </div>
+        <div class="tab-item" id="text_shadow">
+          <h2>Text-shadow</h2>
+          <div class="flex">
+            <div class="col col_left">
+              <label for="text_shadow_font_size">Font size</label>
+              <input
+                id="text_shadow_font_size"
+                type="range"
+                min="16"
+                max="56"
+                step="1"
+                value="56"
+              />
+              <label for="text_shadow_offset_x">Offset X</label>
+              <input
+                id="text_shadow_offset_x"
+                type="range"
+                min="-15"
+                max="15"
+                step="1"
+                value="8"
+              />
+              <label for="text_shadow_offset_y">Offset Y</label>
+              <input
+                id="text_shadow_offset_y"
+                type="range"
+                min="-15"
+                max="15"
+                step="1"
+                value="8"
+              />
+              <label for="text_shadow_blur_radius">Blur radius</label>
+              <input
+                id="text_shadow_blur_radius"
+                type="range"
+                min="0"
+                max="15"
+                step="1"
+                value="0"
+              />
+              <label for="text_shadow_opacity">Opacity</label>
+              <input
+                id="text_shadow_opacity"
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+              />
+              <label for="text_shadow_color">Color</label>
+              <input id="text_shadow_color" type="color" value="#ffaa00" />
+            </div>
+            <div class="col">
+              <div class="result-vue">
+                <div id="text_shadow_result" contenteditable>Result</div>
               </div>
-              <div class="col">
-                <div class="result-vue">
-                  <div id="box_shadow_result"></div>
+              <div class="result-codes">
+                <div class="result-code">
+                  <h3>HEX color</h3>
+                  <div
+                    id="text_shadow_resultHex"
+                    class="code result-code__code"
+                  ></div>
+                  <button
+                    type="button"
+                    class="icon-button result-code__icon-button"
+                    title="copy"
+                    data-id="text_shadow_resultHex"
+                  >
+                    <svg height="24" viewBox="0 0 24 24" width="24">
+                      <path
+                        d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                      />
+                    </svg>
+                  </button>
                 </div>
-                <div class="result-codes">
-                  <div class="result-code">
-                    <h3>HEX color</h3>
-                    <div
-                      id="box_shadow_resultHex"
-                      class="code result-code__code"
-                    ></div>
-                    <button
-                      type="button"
-                      class="icon-button result-code__icon-button"
-                      title="copy"
-                      data-id="box_shadow_resultHex"
-                    >
-                      <svg height="24" viewBox="0 0 24 24" width="24">
-                        <path
-                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="result-code">
-                    <h3>RGBA color</h3>
-                    <div
-                      id="box_shadow_resultRgba"
-                      class="code result-code__code"
-                    ></div>
-                    <button
-                      type="button"
-                      class="icon-button result-code__icon-button"
-                      title="copy"
-                      data-id="box_shadow_resultRgba"
-                    >
-                      <svg height="24" viewBox="0 0 24 24" width="24">
-                        <path
-                          d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                <div class="result-code">
+                  <h3>RGBA color</h3>
+                  <div
+                    id="text_shadow_resultRgba"
+                    class="code result-code__code"
+                  ></div>
+                  <button
+                    type="button"
+                    class="icon-button result-code__icon-button"
+                    title="copy"
+                    data-id="text_shadow_resultRgba"
+                  >
+                    <svg height="24" viewBox="0 0 24 24" width="24">
+                      <path
+                        d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-item" id="box_shadow">
+          <h2>Box shadow</h2>
+          <div class="flex">
+            <div class="col col_left">
+              <div class="checkbox-wrapper">
+                <label for="box_shadow_inside">Inside</label>
+                <input id="box_shadow_inside" type="checkbox" />
+              </div>
+              <label for="box_shadow_offset_x">Offset X</label>
+              <input
+                id="box_shadow_offset_x"
+                type="range"
+                min="-15"
+                max="15"
+                step="1"
+                value="8"
+              />
+              <label for="box_shadow_offset_y">Offset Y</label>
+              <input
+                id="box_shadow_offset_y"
+                type="range"
+                min="-15"
+                max="15"
+                step="1"
+                value="8"
+              />
+              <label for="box_shadow_blur_radius">Blur radius</label>
+              <input
+                id="box_shadow_blur_radius"
+                type="range"
+                min="0"
+                max="15"
+                step="1"
+                value="0"
+              />
+              <label for="box_shadow_spread_radius">Spread radius</label>
+              <input
+                id="box_shadow_spread_radius"
+                type="range"
+                min="0"
+                max="15"
+                step="1"
+                value="0"
+              />
+              <label for="box_shadow_opacity">Opacity</label>
+              <input
+                id="box_shadow_opacity"
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+              />
+              <label for="box_shadow_color">Color</label>
+              <input id="box_shadow_color" type="color" value="#ffaa00" />
+            </div>
+            <div class="col">
+              <div class="result-vue">
+                <div id="box_shadow_result"></div>
+              </div>
+              <div class="result-codes">
+                <div class="result-code">
+                  <h3>HEX color</h3>
+                  <div
+                    id="box_shadow_resultHex"
+                    class="code result-code__code"
+                  ></div>
+                  <button
+                    type="button"
+                    class="icon-button result-code__icon-button"
+                    title="copy"
+                    data-id="box_shadow_resultHex"
+                  >
+                    <svg height="24" viewBox="0 0 24 24" width="24">
+                      <path
+                        d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="result-code">
+                  <h3>RGBA color</h3>
+                  <div
+                    id="box_shadow_resultRgba"
+                    class="code result-code__code"
+                  ></div>
+                  <button
+                    type="button"
+                    class="icon-button result-code__icon-button"
+                    title="copy"
+                    data-id="box_shadow_resultRgba"
+                  >
+                    <svg height="24" viewBox="0 0 24 24" width="24">
+                      <path
+                        d="m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
