@@ -8,20 +8,22 @@
     <title>CSS Generator</title>
   </head>
   <body>
-    <div class="tabs-wrapper">
-      <nav class="tabs">
-        <a class="tab tab_active" href="linear_gradient">linear gradient </a>
-        <a class="tab" href="radial_gradient">radial gradient</a>
-        <a class="tab" href="conic_gradient">conic gradient</a>
-        <a class="tab" href="text-shadow">text-shadow</a>
-        <a class="tab" href="box-shadow">box-shadow</a>
+    <div class="container">
+      <nav class="menu">
+        <a class="menu__tab menu__tab_active" href="linear_gradient">
+          linear gradient
+        </a>
+        <a class="menu__tab" href="radial_gradient">radial gradient</a>
+        <a class="menu__tab" href="conic_gradient">conic gradient</a>
+        <a class="menu__tab" href="text-shadow">text-shadow</a>
+        <a class="menu__tab" href="box-shadow">box-shadow</a>
       </nav>
 
-      <div class="tabs-content">
-        <div class="tab-item" id="linear_gradient">
-          <h2>Linear gradient</h2>
-          <div class="flex">
-            <div class="col col_left">
+      <div class="content">
+        <div class="content__item" id="linear_gradient">
+          <h2 class="content__item_header">Linear gradient</h2>
+          <div class="columns">
+            <div class="columns__col columns__col_left">
               <div class="checkbox-wrapper">
                 <label for="gradient_repeating">Repeating</label>
                 <input id="gradient_repeating" type="checkbox" />
@@ -97,14 +99,14 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="columns__col">
               <div class="result-vue" id="gradient_result"></div>
               <div class="result-codes">
                 <div class="result-code">
                   <h3>Style</h3>
                   <div
                     id="gradient_result_code"
-                    class="code result-code__code"
+                    class="result-code__code"
                   ></div>
                   <button
                     type="button"
@@ -123,10 +125,10 @@
             </div>
           </div>
         </div>
-        <div class="tab-item" id="radial_gradient">
-          <h2>Radial gradient</h2>
-          <div class="flex">
-            <div class="col col_left">
+        <div class="content__item" id="radial_gradient">
+          <h2 class="content__item_header">Radial gradient</h2>
+          <div class="columns">
+            <div class="columns__col columns__col_left">
               <div class="checkbox-wrapper">
                 <label for="radial_gradient_repeating">Repeating</label>
                 <input id="radial_gradient_repeating" type="checkbox" checked />
@@ -220,7 +222,7 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="columns__col">
               <div id="radial_gradient_result" class="radial-gradient-result">
                 <div class="radial-gradient-result__vertical-slider">
                   <input
@@ -255,7 +257,7 @@
                   <h3>Style</h3>
                   <div
                     id="radial_gradient_result_code"
-                    class="code result-code__code"
+                    class="result-code__code"
                   ></div>
                   <button
                     type="button"
@@ -274,13 +276,13 @@
             </div>
           </div>
         </div>
-        <div class="tab-item" id="conic_gradient">
-          <h2>Conic gradient</h2>
+        <div class="content__item" id="conic_gradient">
+          <h2 class="content__item_header">Conic gradient</h2>
         </div>
-        <div class="tab-item" id="text_shadow">
-          <h2>Text-shadow</h2>
-          <div class="flex">
-            <div class="col col_left">
+        <div class="content__item" id="text_shadow">
+          <h2 class="content__item_header">Text-shadow</h2>
+          <div class="columns">
+            <div class="columns__col columns__col_left">
               <label for="text_shadow_font_size">Font size</label>
               <input
                 id="text_shadow_font_size"
@@ -328,7 +330,7 @@
               <label for="text_shadow_color">Color</label>
               <input id="text_shadow_color" type="color" value="#ffaa00" />
             </div>
-            <div class="col">
+            <div class="columns__col">
               <div class="result-vue">
                 <div id="text_shadow_result" contenteditable>Result</div>
               </div>
@@ -337,7 +339,7 @@
                   <h3>HEX color</h3>
                   <div
                     id="text_shadow_resultHex"
-                    class="code result-code__code"
+                    class="result-code__code"
                   ></div>
                   <button
                     type="button"
@@ -356,7 +358,7 @@
                   <h3>RGBA color</h3>
                   <div
                     id="text_shadow_resultRgba"
-                    class="code result-code__code"
+                    class="result-code__code"
                   ></div>
                   <button
                     type="button"
@@ -375,10 +377,10 @@
             </div>
           </div>
         </div>
-        <div class="tab-item" id="box_shadow">
-          <h2>Box shadow</h2>
-          <div class="flex">
-            <div class="col col_left">
+        <div class="content__item" id="box_shadow">
+          <h2 class="content__item_header">Box shadow</h2>
+          <div class="columns">
+            <div class="columns__col columns__col_left">
               <div class="checkbox-wrapper">
                 <label for="box_shadow_inside">Inside</label>
                 <input id="box_shadow_inside" type="checkbox" />
@@ -430,7 +432,7 @@
               <label for="box_shadow_color">Color</label>
               <input id="box_shadow_color" type="color" value="#ffaa00" />
             </div>
-            <div class="col">
+            <div class="columns__col">
               <div class="result-vue">
                 <div id="box_shadow_result"></div>
               </div>
@@ -439,7 +441,7 @@
                   <h3>HEX color</h3>
                   <div
                     id="box_shadow_resultHex"
-                    class="code result-code__code"
+                    class="result-code__code"
                   ></div>
                   <button
                     type="button"
@@ -458,7 +460,7 @@
                   <h3>RGBA color</h3>
                   <div
                     id="box_shadow_resultRgba"
-                    class="code result-code__code"
+                    class="result-code__code"
                   ></div>
                   <button
                     type="button"

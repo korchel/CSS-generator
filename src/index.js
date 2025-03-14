@@ -5,19 +5,19 @@ import { applyBoxShadow } from "./boxShadow.js";
 import { applyGradient } from "./gradient.js";
 import { applyRadialGradient } from "./radialGradient.js";
 
-$(".tabs-wrapper").each(function () {
+$(".container").each(function () {
   let tabs = $(this);
-  tabs.find(".tab-item").not(":first").hide();
-  tabs.find(".tab").click(function (e) {
+  tabs.find(".content__item").not(":first").hide();
+  tabs.find(".menu__tab").click(function (e) {
     e.preventDefault();
-    const currenttab_activeTab = $(".tab_active");
-    const curretTabItem = tabs.find(".tab-item");
-    const tabToOpen = tabs.find(".tab-item").eq($(this).index());
-    if (!$(this).hasClass("tab_active")) {
+    const currentmenu__tab_activeTab = $(".menu__tab_active");
+    const curretTabItem = tabs.find(".content__item");
+    const tabToOpen = tabs.find(".content__item").eq($(this).index());
+    if (!$(this).hasClass("menu__tab_active")) {
       curretTabItem.hide();
       tabToOpen.show();
-      $(this).addClass("tab_active");
-      currenttab_activeTab.removeClass("tab_active");
+      $(this).addClass("menu__tab_active");
+      currentmenu__tab_activeTab.removeClass("menu__tab_active");
     }
   });
 });
