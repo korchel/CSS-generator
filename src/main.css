@@ -108,9 +108,17 @@ body {
   max-width: 320px;
 }
 
+.columns__col_right {
+  padding-right: 20px;
+}
+
 .result-vue {
   height: 100%;
   width: 100%;
+  flex: 1;
+}
+
+.result-vue_center {
   background-color: white;
   display: flex;
   align-items: center;
@@ -122,6 +130,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  min-height: 80px;
 }
 
 .result-code {
@@ -235,16 +244,15 @@ input[id^="gradient_stop"] {
   text-align: center;
 }
 
-/* radial gradient */
+/* radial and conic gradient */
 
-.radial-gradient-result {
+.result-vue_with-sliders {
   position: relative;
-  height: 100%;
   margin-left: 20px;
   margin-bottom: 30px;
 }
 
-.radial-gradient-result__vertical-slider {
+.result-vue_with-sliders__vertical-slider {
   position: absolute;
   transform-origin: top left;
   left: -38px;
@@ -258,7 +266,7 @@ input[id^="gradient_stop"] {
   transform: rotate(180deg);
 }
 
-.radial-gradient-result__horisontal-slider {
+.result-vue_with-sliders__horisontal-slider {
   position: absolute;
   bottom: -38px;
   width: 100%;

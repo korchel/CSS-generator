@@ -4,6 +4,7 @@ import { applyTextShadow } from "./textShadow.js";
 import { applyBoxShadow } from "./boxShadow.js";
 import { applyGradient } from "./gradient.js";
 import { applyRadialGradient } from "./radialGradient.js";
+import { applyConicGradient } from "./conicGradient.js";
 
 $(".container").each(function () {
   let tabs = $(this);
@@ -32,3 +33,4 @@ applyTextShadow();
 applyBoxShadow();
 applyGradient();
 applyRadialGradient();
+applyConicGradient();
