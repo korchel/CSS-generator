@@ -1,0 +1,52 @@
+#radial_gradient.content__item
+  h2.content__item_header Radial gradient
+  .columns
+    .columns__col.columns__col_left
+      .checkbox-wrapper
+        label(for='radial_gradient_repeating') Repeating
+        input#radial_gradient_repeating(type='checkbox' checked='')
+      .checkbox-wrapper
+        label(for='radial_gradient_hard_stops') Hard stops
+        input#radial_gradient_hard_stops(type='checkbox' checked='')
+      h3 Shape
+      .grid-group
+        input#radial_gradient_ellipse(type='radio' name='radial_gradient_shape' value='ellipse')
+        label(for='radial_gradient_ellipse') Ellipse
+        input#radial_gradient_circle(type='radio' name='radial_gradient_shape' value='circle' checked='')
+        label(for='radial_gradient_circle') Circle
+      .colors
+        .add-color
+          h3 Colors
+          button#radial_gradient_add_color.icon-button.icon-button_round-border(type='button' title='add color')
+            svg(viewbox='0 0 24 24' width='20' height='20')
+              path(d='M23,11H13V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V11H1a1,1,0,0,0-1,1H0a1,1,0,0,0,1,1H11V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V13H23a1,1,0,0,0,1-1h0A1,1,0,0,0,23,11Z')
+        .color-inputs
+          .color-input
+            .color-input-group
+              label(for='radial_gradient_color_1') Color
+              input#radial_gradient_color_1(type='color' value='#0008ff')
+            .stop-input-group
+              label(for='radial_gradient_stop_1') Stop
+              input#radial_gradient_stop_1(type='range' min='0' max='100' step='1' value='20')
+          .color-input
+            .color-input-group
+              label(for='radial_gradient_color_2') Color
+              input#radial_gradient_color_2(type='color' value='#0084ff')
+            .stop-input-group
+              label(for='radial_gradient_stop_2') Stop
+              input#radial_gradient_stop_2(type='range' min='0' max='100' step='1' value='40')
+    .columns__col.columns__col_right
+      #radial_gradient_result.result-vue.result-vue_with-sliders
+        .result-vue_with-sliders__vertical-slider
+          input#radial_gradient_position_y(type='range' min='0' max='100' step='1' value='50')
+          label.vertical-slider__label(for='radial_gradient_position_y') Position Y
+        .result-vue_with-sliders__horisontal-slider
+          input#radial_gradient_position_x(type='range' min='0' max='100' step='1' value='50')
+          label(for='radial_gradient_position_x') Position X
+      .result-codes
+        .result-code
+          h3 Style
+          #radial_gradient_result_code.result-code__code
+          button.icon-button.result-code__icon-button(type='button' title='copy' data-id='radial_gradient_result_code')
+            svg(height='24' viewbox='0 0 24 24' width='24')
+              path(d='m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z')

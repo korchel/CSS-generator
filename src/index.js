@@ -1,4 +1,3 @@
-import "./main.css";
 import $ from "jquery";
 import { applyTextShadow } from "./textShadow.js";
 import { applyBoxShadow } from "./boxShadow.js";

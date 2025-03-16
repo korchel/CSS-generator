@@ -1,4 +1,4 @@
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import PugPlugin from "pug-plugin";
 
 export default {
   mode: process.env.NODE_ENV || "development",
@@ -6,16 +6,29 @@ export default {
     rules: [
       {
         test: /\.(scss|css)$/,
-        use: ["style-loader", "css-loader"],
+        use: ["css-loader"],
       },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "index.html",
+    new PugPlugin({
+      entry: {
+        index: "src/pug/index.pug",
+      },
+      js: {
+        filename: "js/[name].[contenthash:8].js",
+      },
+      css: {
+        filename: "css/[name].[contenthash:8].css",
+      },
     }),
   ],
-  output: {
-    clean: true,
+  devServer: {
+    watchFiles: {
+      paths: ["src/**/*.*"],
+      options: {
+        usePolling: true,
+      },
+    },
   },
 };
