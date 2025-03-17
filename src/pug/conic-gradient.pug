@@ -31,7 +31,7 @@
             .stop-input-group
               label(for='conic_gradient_stop_2') Stop
               input#conic_gradient_stop_2(type='range' min='0' max='360' step='1' value='40')
-    .columns__col.columns__col_right
+    .columns__col
       #conic_gradient_result.result-vue.result-vue_with-sliders
         .result-vue_with-sliders__vertical-slider
           input#conic_gradient_position_y(type='range' min='0' max='100' step='1' value='20')
@@ -42,7 +42,8 @@
       .result-codes
         .result-code
           h3 Style
-          #conic_gradient_result_code.result-code__code
-          button.icon-button.result-code__icon-button(type='button' title='copy' data-id='conic_gradient_result_code')
-            svg(height='24' viewbox='0 0 24 24' width='24')
-              path(d='m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z')
+          pre
+            code#conic_gradient_result_code.result-code__code
+            button.icon-button.result-code__icon-button(type='button' title='copy' data-id='conic_gradient_result_code')
+              svg(height='24' viewbox='0 0 24 24' width='24')
+                path(d='m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z')

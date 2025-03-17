@@ -1,10 +1,15 @@
-#gradient-border.content__item
+#gradient_border.content__item
   h2.content__item_header Gradient border
   .columns
     .columns__col.columns__col_left
       .checkbox-wrapper
         label(for='gradient_border_gradient') Repeating
         input#gradient_border_gradient(type='checkbox')
+      .checkbox-wrapper
+        label(for='radial_gradient_hard_stops') Hard stops
+        input#radial_gradient_hard_stops(type='checkbox')
+      label(for='radial_gradient_angle') Angle
+      input#radial_gradient_angle(type='range' min='0' max='360' step='1' value='0')
       label(for='gradient_border_thickness') Thickness
       input#gradient_border_thickness(type='range' min='1' max='100' step='1' value='5')
       label(for='gradient_border_radius') Radius
@@ -31,12 +36,17 @@
               label(for='gradient_border_stop_2') Stop
               input#gradient_border_stop_2(type='range' min='0' max='100' step='1' value='100')
     .columns__col
+      .color-input-group
+        label(for='gradient_border_bg_color') Background color
+        input#gradient_border_bg_color(type='color' value='#e2e2e2')
       .result-vue.result-vue_center
         #gradient_border_result
       .result-codes
         .result-code
           h3 Style
-          #gradient_border_result_code.result-code__code
-          button.icon-button.result-code__icon-button(type='button' title='copy' data-id='gradient_border_result_code')
-            svg(height='24' viewbox='0 0 24 24' width='24')
-              path(d='m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z')
+          pre
+            code#gradient_border_result_code.result-code__code
+            button.icon-button.result-code__icon-button(type='button' title='copy' data-id='gradient_border_result_code')
+              svg(height='24' viewbox='0 0 24 24' width='24')
+                path(d='m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1 1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z')
+

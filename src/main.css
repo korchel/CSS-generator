@@ -44,7 +44,7 @@ body {
 }
 
 .menu {
-  width: 200px;
+  width: 150px;
   flex-shrink: 0;
   background-color: var(--secondary);
 }
@@ -108,10 +108,6 @@ body {
   max-width: 320px;
 }
 
-.columns__col_right {
-  padding-right: 20px;
-}
-
 .result-vue {
   height: 100%;
   width: 100%;
@@ -123,6 +119,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 .result-codes {
@@ -144,8 +141,10 @@ body {
 }
 
 .result-code__code {
-  margin-top: 20px;
+  margin-top: 1rem;
   color: var(--black);
+  display: inline-block;
+  line-height: 1;
 }
 
 .icon-button {
@@ -204,13 +203,9 @@ body {
 
 .color-input-group {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
   gap: 0.5rem;
-}
-
-.color-input-group input {
-  margin-left: auto;
 }
 
 .stop-input-group {
@@ -248,14 +243,15 @@ input[id^="gradient_stop"] {
 
 .result-vue_with-sliders {
   position: relative;
-  margin-left: 20px;
-  margin-bottom: 30px;
+  background-size: 95% 95%;
+  background-repeat: no-repeat;
+  background-position: right top;
 }
 
 .result-vue_with-sliders__vertical-slider {
   position: absolute;
   transform-origin: top left;
-  left: -38px;
+  left: 0;
   top: 0;
   transform: rotate(90deg) translateY(-100%);
   width: calc();
@@ -268,34 +264,29 @@ input[id^="gradient_stop"] {
 
 .result-vue_with-sliders__horisontal-slider {
   position: absolute;
-  bottom: -38px;
-  width: 100%;
+  bottom: 0;
+  right: 0;
+  width: 95%;
 }
 
 /* gradient border */
 
 #gradient_border_result {
-  height: 30%;
-  width: 30%;
+  height: 450px;
+  width: 300px;
   position: relative;
   border-radius: 50px;
-  background: green;
 }
 
-#gradient_border_result::before,
-#gradient_border_result::after {
+.class::before {
   content: "";
   position: absolute;
-  inset: -20px;
+  inset: 0;
   border-radius: inherit;
-  z-index: -1;
+  padding: 30px;
+  background: conic-gradient(from 45deg, red, blue, green, red);
 
-  background: conic-gradient(rgb(57, 225, 6), blue, rgb(57, 225, 6));
-}
-
-#gradient_border_resu5lt:hover {
-  background: linear-gradient(rgb(81, 52, 95), blue);
-  mask: linear-gradient(red 0 50%) content-box, linear-gradient(red 0 50%);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
 }
 

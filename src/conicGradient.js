@@ -1,4 +1,5 @@
 import $ from "jquery";
+import { getConicColors } from "./utils/getConicColors.js";
 
 const generateGradientStyle = (
   angle,
@@ -22,30 +23,16 @@ const setStyles = () => {
   const positionX = $("#conic_gradient_position_x").val();
   const positionY = $("#conic_gradient_position_y").val();
   const stopInputs = $('[id^="conic_gradient_stop"]');
-  const colors = $('[id^="conic_gradient_color"]')
-    .map((i, colorInput) => {
-      if (hasHardStops) {
-        const stop1 = i === 0 ? 0 : $(stopInputs[i - 1]).val();
-        const stop2 = $(stopInputs[i]).val();
-        return {
-          color: $(colorInput).val(),
-          stop: `${stop1}deg ${stop2}deg`,
-        };
-      }
-      return {
-        color: $(colorInput).val(),
-        stop: `${$(stopInputs[i]).val()}deg`,
-      };
-    })
-    .get();
+  const colorInput = $('[id^="conic_gradient_color"]');
+
+  const colors = getConicColors(stopInputs, colorInput, hasHardStops);
 
   const styles = generateGradientStyle(
     angle,
     positionX,
     positionY,
     colors,
-    isRepeating,
-    hasHardStops
+    isRepeating
   );
   $("#conic_gradient_result").css("background-image", styles);
   $("#conic_gradient_result_code").text(`background-image: ${styles}`);
@@ -55,11 +42,15 @@ export const applyConicGradient = () => {
   setStyles();
 
   $("[href='conic_gradient']").on("click", () => {
-    $("#conic_gradient_position_y").width($("#conic_gradient_result").height());
+    $("#conic_gradient_position_y").width(
+      0.95 * $("#conic_gradient_result").height()
+    );
   });
 
   $(window).on("resize", function () {
-    $("#conic_gradient_position_y").width($("#conic_gradient_result").height());
+    $("#conic_gradient_position_y").width(
+      0.95 * $("#conic_gradient_result").height()
+    );
   });
 
   $("#conic_gradient_add_color").on("click", function () {

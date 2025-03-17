@@ -41,6 +41,15 @@ const setStyles = () => {
 export const applyTextShadow = () => {
   setStyles();
 
+  $("#text_shadow .result-vue").css(
+    "background-color",
+    $("#text_shadow_bg_color").val()
+  );
+
+  $("#text_shadow_bg_color").on("input", function () {
+    $("#text_shadow .result-vue").css("background-color", $(this).val());
+  });
+
   $("#text_shadow input").on("input", function () {
     setStyles();
   });

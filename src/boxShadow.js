@@ -58,6 +58,15 @@ const setStyles = () => {
 export const applyBoxShadow = () => {
   setStyles();
 
+  $("#box_shadow .result-vue").css(
+    "background-color",
+    $("#box_shadow_bg_color").val()
+  );
+
+  $("#box_shadow_bg_color").on("input", function () {
+    $("#box_shadow .result-vue").css("background-color", $(this).val());
+  });
+
   $("#box_shadow input").on("input", function () {
     setStyles();
   });

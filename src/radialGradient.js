@@ -1,4 +1,5 @@
 import $ from "jquery";
+import { getColors } from "./utils/getColors.js";
 
 const generateGradientStyle = (
   shape,
@@ -22,30 +23,16 @@ const setStyles = () => {
   const positionX = $("#radial_gradient_position_x").val();
   const positionY = $("#radial_gradient_position_y").val();
   const stopInputs = $('[id^="radial_gradient_stop"]');
-  const colors = $('[id^="radial_gradient_color"]')
-    .map((i, colorInput) => {
-      if (hasHardStops) {
-        const stop1 = i === 0 ? 0 : $(stopInputs[i - 1]).val();
-        const stop2 = $(stopInputs[i]).val();
-        return {
-          color: $(colorInput).val(),
-          stop: `${stop1}% ${stop2}%`,
-        };
-      }
-      return {
-        color: $(colorInput).val(),
-        stop: `${$(stopInputs[i]).val()}%`,
-      };
-    })
-    .get();
+  const colorsInputs = $('[id^="radial_gradient_color"]');
+
+  const colors = getColors(stopInputs, colorsInputs, hasHardStops);
 
   const styles = generateGradientStyle(
     shape,
     positionX,
     positionY,
     colors,
-    isRepeating,
-    hasHardStops
+    isRepeating
   );
   $("#radial_gradient_result").css("background-image", styles);
   $("#radial_gradient_result_code").text(`background-image: ${styles}`);
@@ -56,13 +43,13 @@ export const applyRadialGradient = () => {
 
   $("[href='radial_gradient']").on("click", () => {
     $("#radial_gradient_position_y").width(
-      $("#radial_gradient_result").height()
+      0.95 * $("#radial_gradient_result").height()
     );
   });
 
   $(window).on("resize", function () {
     $("#radial_gradient_position_y").width(
-      $("#radial_gradient_result").height()
+      0.95 * $("#radial_gradient_result").height()
     );
   });
 
