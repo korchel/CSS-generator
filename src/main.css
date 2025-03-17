@@ -272,6 +272,33 @@ input[id^="gradient_stop"] {
   width: 100%;
 }
 
+/* gradient border */
+
+#gradient_border_result {
+  height: 30%;
+  width: 30%;
+  position: relative;
+  border-radius: 50px;
+  background: green;
+}
+
+#gradient_border_result::before,
+#gradient_border_result::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: inherit;
+  z-index: -1;
+
+  background: conic-gradient(rgb(57, 225, 6), blue, rgb(57, 225, 6));
+}
+
+#gradient_border_resu5lt:hover {
+  background: linear-gradient(rgb(81, 52, 95), blue);
+  mask: linear-gradient(red 0 50%) content-box, linear-gradient(red 0 50%);
+  mask-composite: exclude;
+}
+
 /* slider */
 
 input[type="range"] {
