@@ -56,12 +56,14 @@ const setStyles = () => {
   const isRepeating = $("#gradient_border_repeating").is(":checked");
   const hasHardStops = $("#gradient_border_hard_stops").is(":checked");
   const thickness = $("#gradient_border_thickness").val();
-  const borderRadius = $("#gradient_border_border_radius").val();
+  const borderRadius = $("#gradient_border_radius").val();
   const stopInputs = $('[id^="gradient_border_stop"]');
   const colorInput = $('[id^="gradient_border_color"]');
 
   const colors = getConicColors(stopInputs, colorInput, hasHardStops);
-
+  const colorString = colors
+    .map(({ color, stop }) => `${color} ${stop}`)
+    .join(", ");
   const styles = generateGradientStyle(
     angle,
     thickness,
@@ -69,14 +71,22 @@ const setStyles = () => {
     colors,
     isRepeating
   );
-  $("#gradient_border_result").css(styles.box);
-  $(".class").css(styles.before);
+
+  $("#gradient_border_result")
+    .css("--gradient-border-radius", `${borderRadius}%`)
+    .css(
+      "--gradient-border-colors",
+      `${
+        isRepeating ? "repeating-" : ""
+      }conic-gradient(from ${angle}deg, ${colorString})`
+    )
+    .css("--gradient-border-thickness", `${thickness}%`);
+
   $("#gradient_border_result_code ").text(styles);
 };
 
 export const applyGradientBorder = () => {
   setStyles();
-
   $("[href='gradient_border']").on("click", () => {
     $("#gradient_border_position_y").width(
       $("#gradient_border_result").height()

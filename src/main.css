@@ -270,22 +270,26 @@ input[id^="gradient_stop"] {
 }
 
 /* gradient border */
+#gradient_border_result {
+  --gradient-border-colors: conic-gradient(from 45deg, red, blue, green, red);
+  --gradient-border-thickness: 30px;
+  --gradient-border-radius: 20%;
+}
 
 #gradient_border_result {
   height: 450px;
   width: 300px;
   position: relative;
-  border-radius: 50px;
+  border-radius: var(--gradient-border-radius);
 }
 
-.class::before {
+#gradient_border_result::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 30px;
-  background: conic-gradient(from 45deg, red, blue, green, red);
-
+  padding: var(--gradient-border-thickness);
+  background: var(--gradient-border-colors);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
 }
