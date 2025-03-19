@@ -1,5 +1,6 @@
 import $ from "jquery";
 import { getConicColors } from "./utils/getConicColors.js";
+import { getRandomColor } from "./utils/getRandomColor.js";
 
 const generateGradientStyle = (
   angle,
@@ -73,7 +74,7 @@ const setStyles = () => {
   );
 
   $("#gradient_border_result")
-    .css("--gradient-border-radius", `${borderRadius}%`)
+    .css("--gradient-border-radius", `${borderRadius}px`)
     .css(
       "--gradient-border-colors",
       `${
@@ -87,6 +88,12 @@ const setStyles = () => {
 
 export const applyGradientBorder = () => {
   setStyles();
+
+  $('[data-id="delete-color"]').on("click", function () {
+    $(this).closest(".color-input").remove();
+    setStyles();
+  });
+
   $("[href='gradient_border']").on("click", () => {
     $("#gradient_border_position_y").width(
       $("#gradient_border_result").height()
@@ -105,7 +112,9 @@ export const applyGradientBorder = () => {
     if (colorInputsCount === 7) {
       return;
     }
+
     const newColorInput = colorInputs.children().first().clone();
+
     newColorInput
       .find(".color-input-group label")
       .attr("for", `gradient_border_color_${colorInputsCount + 1}`)
@@ -113,6 +122,7 @@ export const applyGradientBorder = () => {
     newColorInput
       .find(".color-input-group input")
       .attr("id", `gradient_border_color_${colorInputsCount + 1}`)
+      .val(getRandomColor())
       .on("input", setStyles);
     newColorInput
       .find(".stop-input-group label")
@@ -121,16 +131,12 @@ export const applyGradientBorder = () => {
       .find(".stop-input-group input")
       .attr("id", `gradient_border_stop_${colorInputsCount + 1}`)
       .on("input", setStyles);
-
-    const removeColorButton = $(
-      '<button class="icon-button stop-input-group__icon-button"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M18,6h0a1,1,0,0,0-1.414,0L12,10.586,7.414,6A1,1,0,0,0,6,6H6A1,1,0,0,0,6,7.414L10.586,12,6,16.586A1,1,0,0,0,6,18H6a1,1,0,0,0,1.414,0L12,13.414,16.586,18A1,1,0,0,0,18,18h0a1,1,0,0,0,0-1.414L13.414,12,18,7.414A1,1,0,0,0,18,6Z"/></svg></button>'
-    );
-    removeColorButton.on("click", function () {
+    newColorInput.find("button").on("click", function () {
       newColorInput.remove();
       setStyles();
     });
-    newColorInput.find(".stop-input-group").append(removeColorButton);
-    colorInputs.append(newColorInput);
+
+    colorInputs.children().last().before(newColorInput);
     setStyles();
   });
 

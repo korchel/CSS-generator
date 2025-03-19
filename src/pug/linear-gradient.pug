@@ -21,6 +21,7 @@
             .stop-input-group
               label(for='gradient_stop_1') Stop
               input#gradient_stop_1(type='range' min='0' max='100' step='1' value='0')
+            +deleteButton('delete-color')
           .color-input
             .color-input-group
               label(for='gradient_color_2') Color
@@ -28,6 +29,7 @@
             .stop-input-group
               label(for='gradient_stop_2') Stop
               input#gradient_stop_2(type='range' min='0' max='100' step='1' value='100')
+            +deleteButton('delete-color')
     .columns__col
       #gradient_result.result-vue
       .result-codes

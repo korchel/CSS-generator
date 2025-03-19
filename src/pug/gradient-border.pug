@@ -3,11 +3,11 @@
   .columns
     .columns__col.columns__col_left
       .checkbox-wrapper
-        label(for='gradient_border_gradient') Repeating
-        input#gradient_border_gradient(type='checkbox')
+        label(for='gradient_border_repeating') Repeating
+        input#gradient_border_repeating(type='checkbox')
       .checkbox-wrapper
         label(for='gradient_border_hard_stops') Hard stops
-        input#rgradient_border_hard_stops(type='checkbox')
+        input#gradient_border_hard_stops(type='checkbox')
       label(for='gradient_border_angle') Angle
       input#gradient_border_angle(type='range' min='0' max='360' step='1' value='0')
       label(for='gradient_border_thickness') Thickness
@@ -27,14 +27,24 @@
               input#gradient_border_color_1(type='color' value='#0000ff')
             .stop-input-group
               label(for='gradient_border_stop_1') Stop
-              input#gradient_border_stop_1(type='range' min='0' max='100' step='1' value='0')
+              input#gradient_border_stop_1(type='range' min='0' max='360' step='1' value='0')
+              +deleteButton('delete-color')
           .color-input
             .color-input-group
               label(for='gradient_border_color_2') Color
               input#gradient_border_color_2(type='color' value='#ff0000')
             .stop-input-group
               label(for='gradient_border_stop_2') Stop
-              input#gradient_border_stop_2(type='range' min='0' max='100' step='1' value='100')
+              input#gradient_border_stop_2(type='range' min='0' max='360' step='1' value='180')
+              +deleteButton('delete-color')
+          .color-input
+            .color-input-group
+              label(for='gradient_border_color_3') Color
+              input#gradient_border_color_1(type='color' value='#0000ff')
+            .stop-input-group
+              label(for='gradient_border_stop_3') Stop
+              input#gradient_border_stop_1(type='range' min='0' max='360' step='1' value='360')
+              +deleteButton('delete-color')
     .columns__col
       .color-input-group
         label(for='gradient_border_bg_color') Background color

@@ -4,7 +4,6 @@ export const getConicColors = (stopInputs, colorInputs, hasHardStops) => {
   const colors = colorInputs
     .map((i, colorInput) => {
       if (hasHardStops) {
-        console.log(hasHardStops);
         const stop1 = i === 0 ? 0 : $(stopInputs[i - 1]).val();
         const stop2 = $(stopInputs[i]).val();
         return {
