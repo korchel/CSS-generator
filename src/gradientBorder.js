@@ -9,9 +9,6 @@ const generateGradientStyle = (
   colors,
   isRepeating
 ) => {
-  const colorString = colors
-    .map(({ color, stop }) => `${color} ${stop}`)
-    .join(", ");
   return {
     box: {
       height: "450px",
@@ -61,29 +58,27 @@ const setStyles = () => {
   const stopInputs = $('[id^="gradient_border_stop"]');
   const colorInput = $('[id^="gradient_border_color"]');
 
-  const colors = getConicColors(stopInputs, colorInput, hasHardStops);
-  const colorString = colors
-    .map(({ color, stop }) => `${color} ${stop}`)
-    .join(", ");
-  const styles = generateGradientStyle(
-    angle,
-    thickness,
-    borderRadius,
-    colors,
-    isRepeating
-  );
+  const conicColors = getConicColors(stopInputs, colorInput, hasHardStops);
+
+  // const styles = generateGradientStyle(
+  //   angle,
+  //   thickness,
+  //   borderRadius,
+  //   colors,
+  //   isRepeating,
+  //   shape
+  // );
+
+  const gradientBorderColors = `${
+    isRepeating ? "repeating-" : ""
+  }conic-gradient(from ${angle}deg, ${conicColors})`;
 
   $("#gradient_border_result")
     .css("--gradient-border-radius", `${borderRadius}px`)
-    .css(
-      "--gradient-border-colors",
-      `${
-        isRepeating ? "repeating-" : ""
-      }conic-gradient(from ${angle}deg, ${colorString})`
-    )
+    .css("--gradient-border-colors", gradientBorderColors)
     .css("--gradient-border-thickness", `${thickness}%`);
 
-  $("#gradient_border_result_code ").text(styles);
+  // $("#gradient_border_result_code ").text(styles);
 };
 
 export const applyGradientBorder = () => {

@@ -17,5 +17,5 @@ export const getColors = (stopInputs, colorInputs, hasHardStops) => {
       };
     })
     .get();
-  return colors;
+  return colors.map(({ color, stop }) => `${color} ${stop}`).join(", ");
 };

@@ -8,12 +8,9 @@ const generateGradientStyle = (
   colors,
   isRepeating
 ) => {
-  const colorString = colors
-    .map(({ color, stop }) => `${color} ${stop}`)
-    .join(", ");
   return `${
     isRepeating ? "repeating-" : ""
-  }radial-gradient(${shape} at ${positionX}% ${positionY}%, ${colorString})`;
+  }radial-gradient(${shape} at ${positionX}% ${positionY}%, ${colors})`;
 };
 
 const setStyles = () => {

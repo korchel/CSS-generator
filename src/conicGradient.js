@@ -8,12 +8,9 @@ const generateGradientStyle = (
   colors,
   isRepeating
 ) => {
-  const colorString = colors
-    .map(({ color, stop }) => `${color} ${stop}`)
-    .join(", ");
   return `${
     isRepeating ? "repeating-" : ""
-  }conic-gradient(from ${angle}deg at ${positionX}% ${positionY}%, ${colorString})`;
+  }conic-gradient(from ${angle}deg at ${positionX}% ${positionY}%, ${colors})`;
 };
 
 const setStyles = () => {
