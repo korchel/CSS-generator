@@ -29,6 +29,22 @@ $('[title="copy"]').on("click", function () {
   navigator.clipboard.writeText(text.text());
 });
 
+$("[data-id='delete-color']").on("click", function () {
+  const colorInputsCount = $(this).closest(".color-inputs").children().length;
+  $(this).closest(".color-input-group").remove();
+  if (colorInputsCount <= 3) {
+    $("[data-id='delete-color']").prop("disabled", true);
+  }
+});
+
+$("input[type='number']").on("input", function () {
+  $(this).prev('input[type="range"]').val($(this).val());
+});
+
+$("input[type='range']").on("input", function () {
+  $(this).next('input[type="number"]').val($(this).val());
+});
+
 applyTextShadow();
 applyBoxShadow();
 applyGradient();

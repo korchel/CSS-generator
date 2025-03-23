@@ -1,5 +1,6 @@
 import $ from "jquery";
 import { getConicColors } from "./utils/getConicColors.js";
+import { getNewColorInput } from "./utils/getNewColorInput.js";
 
 const generateGradientStyle = (
   angle,
@@ -37,6 +38,7 @@ const setStyles = () => {
 
 export const applyConicGradient = () => {
   setStyles();
+  $("#conic_gradient button[data-id='delete-color']").prop("disabled", true);
 
   $("[href='conic_gradient']").on("click", () => {
     $("#conic_gradient_position_y").width(
@@ -56,31 +58,21 @@ export const applyConicGradient = () => {
     if (colorInputsCount === 7) {
       return;
     }
-    const newColorInput = colorInputs.children().first().clone();
-    newColorInput
-      .find(".color-input-group label")
-      .attr("for", `conic_gradient_color_${colorInputsCount + 1}`)
-      .text("Color");
-    newColorInput
-      .find(".color-input-group input")
-      .attr("id", `conic_gradient_color_${colorInputsCount + 1}`)
-      .on("input", setStyles);
-    newColorInput
-      .find(".stop-input-group label")
-      .attr("for", `conic_gradient_stop_${colorInputsCount + 1}`);
-    newColorInput
-      .find(".stop-input-group input")
-      .attr("id", `conic_gradient_stop_${colorInputsCount + 1}`)
-      .on("input", setStyles);
 
-    const removeColorButton = $(
-      '<button class="icon-button stop-input-group__icon-button"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M18,6h0a1,1,0,0,0-1.414,0L12,10.586,7.414,6A1,1,0,0,0,6,6H6A1,1,0,0,0,6,7.414L10.586,12,6,16.586A1,1,0,0,0,6,18H6a1,1,0,0,0,1.414,0L12,13.414,16.586,18A1,1,0,0,0,18,18h0a1,1,0,0,0,0-1.414L13.414,12,18,7.414A1,1,0,0,0,18,6Z"/></svg></button>'
+    if (colorInputsCount === 2) {
+      $("#conic_gradient button[data-id='delete-color']").prop(
+        "disabled",
+        false
+      );
+    }
+
+    const newColorInput = getNewColorInput(
+      colorInputs,
+      "conic_gradient",
+      colorInputsCount,
+      setStyles
     );
-    removeColorButton.on("click", function () {
-      newColorInput.remove();
-      setStyles();
-    });
-    newColorInput.find(".stop-input-group").append(removeColorButton);
+
     colorInputs.append(newColorInput);
     setStyles();
   });

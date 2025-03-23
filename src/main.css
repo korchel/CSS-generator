@@ -105,7 +105,7 @@ body {
 }
 
 .columns__col_left {
-  max-width: 320px;
+  max-width: 500px;
 }
 
 .result-vue {
@@ -115,7 +115,6 @@ body {
 }
 
 .result-vue_center {
-  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,7 +160,8 @@ body {
   transition: border 0.3s, fill 0.3s;
 }
 
-.icon-button:hover {
+.icon-button:hover,
+.icon-button:disabled {
   fill: var(--secondary);
 }
 
@@ -172,6 +172,27 @@ body {
 
 .icon-button_round-border:hover {
   border-color: var(--secondary);
+}
+
+.slider-input-group {
+  display: grid;
+  grid-template-columns: 1fr 5fr 0.5fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkbox-input-group {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: auto 20px;
+  gap: 1rem;
+}
+
+.radio-group {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 20px auto;
+  gap: 1rem;
 }
 
 /* box shadow */
@@ -196,27 +217,23 @@ body {
   gap: 2rem;
 }
 
-.color-input {
+.color-input-group {
   display: flex;
   gap: 2rem;
 }
 
-.color-input-group {
+.color-input {
   display: flex;
   justify-content: right;
   align-items: center;
   gap: 0.5rem;
 }
 
-.stop-input-group {
+.stop-input {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   flex-grow: 1;
-}
-
-input[id^="gradient_stop"] {
-  max-width: 120px;
 }
 
 .add-color {
@@ -225,7 +242,7 @@ input[id^="gradient_stop"] {
   align-items: center;
 }
 
-.stop-input-group__icon-button {
+.stop-input__icon-button {
   margin-left: auto;
 }
 
@@ -374,29 +391,27 @@ input[type="color"]::-moz-color-swatch {
 
 /* checkbox */
 
-.checkbox-wrapper {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
 input[type="checkbox"] {
   accent-color: var(--light);
 }
 
 /* radio */
 
-.grid-group {
-  display: grid;
-  grid-template-columns: 10px 1fr 10px 1fr;
-  gap: 1rem;
-}
-
-.grid-group_2cols {
-  grid-column: span 2;
-}
-
 input[type="radio"] {
   cursor: pointer;
   accent-color: var(--dark);
+}
+
+/* input number */
+
+input[type="number"] {
+  height: 30px;
+  width: 45px;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 2px;
+}
+
+input[type="number"]:focus {
+  border: 2px solid var(--secondary);
 }

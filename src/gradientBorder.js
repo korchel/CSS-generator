@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { getConicColors } from "./utils/getConicColors.js";
-import { getRandomColor } from "./utils/getRandomColor.js";
+import { getNewColorInput } from "./utils/getNewColorInput.js";
 
 const generateGradientStyle = (
   angle,
@@ -84,11 +84,6 @@ const setStyles = () => {
 export const applyGradientBorder = () => {
   setStyles();
 
-  $('[data-id="delete-color"]').on("click", function () {
-    $(this).closest(".color-input").remove();
-    setStyles();
-  });
-
   $("[href='gradient_border']").on("click", () => {
     $("#gradient_border_position_y").width(
       $("#gradient_border_result").height()
@@ -108,28 +103,19 @@ export const applyGradientBorder = () => {
       return;
     }
 
-    const newColorInput = colorInputs.children().first().clone();
+    if (colorInputsCount < 3) {
+      $("#gradient_border button[data-id='delete-color']").prop(
+        "disabled",
+        false
+      );
+    }
 
-    newColorInput
-      .find(".color-input-group label")
-      .attr("for", `gradient_border_color_${colorInputsCount + 1}`)
-      .text("Color");
-    newColorInput
-      .find(".color-input-group input")
-      .attr("id", `gradient_border_color_${colorInputsCount + 1}`)
-      .val(getRandomColor())
-      .on("input", setStyles);
-    newColorInput
-      .find(".stop-input-group label")
-      .attr("for", `gradient_border_stop_${colorInputsCount + 1}`);
-    newColorInput
-      .find(".stop-input-group input")
-      .attr("id", `gradient_border_stop_${colorInputsCount + 1}`)
-      .on("input", setStyles);
-    newColorInput.find("button").on("click", function () {
-      newColorInput.remove();
-      setStyles();
-    });
+    const newColorInput = getNewColorInput(
+      colorInputs,
+      "gradient_border",
+      colorInputsCount,
+      setStyles
+    );
 
     colorInputs.children().last().before(newColorInput);
     setStyles();
