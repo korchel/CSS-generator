@@ -2,16 +2,22 @@
   h2.content__item_header Text-shadow
   .columns
     .columns__col.columns__col_left
-      label(for='text_shadow_font_size') Font size
-      input#text_shadow_font_size(type='range' min='16' max='56' step='1' value='56')
-      label(for='text_shadow_offset_x') Offset X
-      input#text_shadow_offset_x(type='range' min='-15' max='15' step='1' value='8')
-      label(for='text_shadow_offset_y') Offset Y
-      input#text_shadow_offset_y(type='range' min='-15' max='15' step='1' value='8')
-      label(for='text_shadow_blur_radius') Blur radius
-      input#text_shadow_blur_radius(type='range' min='0' max='15' step='1' value='0')
-      label(for='text_shadow_opacity') Opacity
-      input#text_shadow_opacity(type='range' min='0' max='1' step='0.01')
+      .slider-input-group
+        label(for='text_shadow_font_size') Font size
+        input#text_shadow_font_size(type='range' min='16' max='56' step='1' value='56')
+        input.input-number(type='number' min='16' max='56' value='56')
+        label(for='text_shadow_offset_x') Offset X
+        input#text_shadow_offset_x(type='range' min='-15' max='15' step='1' value='8')
+        input.input-number(type='number' min='-15' max='115' value='8')
+        label(for='text_shadow_offset_y') Offset Y
+        input#text_shadow_offset_y(type='range' min='-15' max='15' step='1' value='8')
+        input.input-number(type='number' min='-15' max='15' value='8')
+        label(for='text_shadow_blur_radius') Blur radius
+        input#text_shadow_blur_radius(type='range' min='0' max='15' step='1' value='0')
+        input.input-number(type='number' min='0' max='15' value='0')
+        label(for='text_shadow_opacity') Opacity
+        input#text_shadow_opacity(type='range' min='0' max='1' step='0.01')
+        input.input-number(type='number' min='0' max='1' value='0.01')
       label(for='text_shadow_color') Color
       input#text_shadow_color(type='color' value='#ffaa00')
     .columns__col

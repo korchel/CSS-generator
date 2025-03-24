@@ -53,7 +53,7 @@ export const applyRadialGradient = () => {
   });
 
   $("#radial_gradient_add_color").on("click", function () {
-    const colorInputs = $(this).parent().siblings(".color-inputs");
+    const colorInputs = $(this).siblings(".color-inputs");
     const colorInputsCount = colorInputs.children().length;
     if (colorInputsCount === 7) {
       return;

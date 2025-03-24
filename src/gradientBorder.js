@@ -9,44 +9,25 @@ const generateGradientStyle = (
   colors,
   isRepeating
 ) => {
-  return {
-    box: {
-      height: "450px",
-      width: "300px",
-      position: "relative",
-      "border-radius": `${borderRadius}px`,
-    },
-    before: {
-      content: '""',
-      position: "absolute",
+  return `
+    .box {
+      height: 450px,
+      width: 300px,
+      position: relative,
+      border-radius: ${borderRadius}px,
+    }
+    .box::before {
+      content: '',
+      position: absolute,
       inset: 0,
-      "border-radius": "inherit",
-      padding: `${thickness}px`,
-      background: `${
+      border-radius: inherit,
+      padding: ${thickness}px,
+      background: ${
         isRepeating ? "repeating-" : ""
-      }conic-gradient(from ${angle}deg, ${colorString})`,
-      mask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-      "mask-composite": "exclude",
-    },
-  };
-  // return `.box {
-  //   height: 450px; // adjust height
-  //     // adjust width
-  //   position: relative;
-  //   border-radius: ${borderRadius}px;
-  // }
-  // .box::before {
-  //   content: "";
-  //   position: absolute;
-  //   inset: 0;
-  //   border-radius: inherit;
-  //   padding: ${thickness}px;
-  //   background: ${
-  //     isRepeating ? "repeating-" : ""
-  //   }conic-gradient(from ${angle}deg, ${colorString});
-  //   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  //   mask-composite: exclude;
-  // }`;
+      }conic-gradient(from ${angle}deg, ${colors}),
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0),
+      mask-composite: exclude,
+    }`;
 };
 
 const setStyles = () => {
@@ -58,27 +39,26 @@ const setStyles = () => {
   const stopInputs = $('[id^="gradient_border_stop"]');
   const colorInput = $('[id^="gradient_border_color"]');
 
-  const conicColors = getConicColors(stopInputs, colorInput, hasHardStops);
+  const colors = getConicColors(stopInputs, colorInput, hasHardStops);
 
-  // const styles = generateGradientStyle(
-  //   angle,
-  //   thickness,
-  //   borderRadius,
-  //   colors,
-  //   isRepeating,
-  //   shape
-  // );
+  const styles = generateGradientStyle(
+    angle,
+    thickness,
+    borderRadius,
+    colors,
+    isRepeating
+  );
 
   const gradientBorderColors = `${
     isRepeating ? "repeating-" : ""
-  }conic-gradient(from ${angle}deg, ${conicColors})`;
+  }conic-gradient(from ${angle}deg, ${colors})`;
 
   $("#gradient_border_result")
     .css("--gradient-border-radius", `${borderRadius}px`)
     .css("--gradient-border-colors", gradientBorderColors)
     .css("--gradient-border-thickness", `${thickness}%`);
 
-  // $("#gradient_border_result_code ").text(styles);
+  $("#gradient_border_result_code ").text(styles);
 };
 
 export const applyGradientBorder = () => {
@@ -97,7 +77,7 @@ export const applyGradientBorder = () => {
   });
 
   $("#gradient_border_add_color").on("click", function () {
-    const colorInputs = $(this).parent().siblings(".color-inputs");
+    const colorInputs = $(this).siblings(".color-inputs");
     const colorInputsCount = colorInputs.children().length;
     if (colorInputsCount === 7) {
       return;

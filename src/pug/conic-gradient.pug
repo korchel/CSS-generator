@@ -12,11 +12,7 @@
         input#conic_gradient_angle(type='range' min='0' max='360' step='1' value='0')
         input.input-number(type='number' min='0' max='360' value='0')
       .colors
-        .add-color
-          h3 Colors
-          button#conic_gradient_add_color.icon-button.icon-button_round-border(type='button' title='add color')
-            svg(viewbox='0 0 24 24' width='20' height='20')
-              path(d='M23,11H13V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V11H1a1,1,0,0,0-1,1H0a1,1,0,0,0,1,1H11V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V13H23a1,1,0,0,0,1-1h0A1,1,0,0,0,23,11Z')
+        h3 Colors
         .color-inputs
           .color-input-group
             .color-input
@@ -36,6 +32,7 @@
               input#conic_gradient_stop_2(type='range' min='0' max='360' step='1' value='40')
               input.input-number(type='number' min='0' max='360' value='40')
             +deleteButton('delete-color')
+        button.btn#conic_gradient_add_color Add color  
     .columns__col
       #conic_gradient_result.result-vue.result-vue_with-sliders
         .result-vue_with-sliders__vertical-slider

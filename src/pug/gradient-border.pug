@@ -12,17 +12,13 @@
         input#gradient_border_angle(type='range' min='0' max='360' step='1' value='0')
         input.input-number(type='number' min='0' max='360' value='0')
         label(for='gradient_border_thickness') Thickness
-        input#gradient_border_thickness(type='range' min='1' max='100' step='1' value='5')
-        input.input-number(type='number' min='1' max='100' value='5')
+        input#gradient_border_thickness(type='range' min='1' max='20' step='1' value='5')
+        input.input-number(type='number' min='1' max='20' value='5')
         label(for='gradient_border_radius') Radius
         input#gradient_border_radius(type='range' min='0' max='100' step='1' value='20')
         input.input-number(type='number' min='0' max='100' value='20')
       .colors
-        .add-color
-          h3 Colors
-          button#gradient_border_add_color.icon-button.icon-button_round-border(type='button' title='add color')
-            svg(viewbox='0 0 24 24' width='20' height='20')
-              path(d='M23,11H13V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V11H1a1,1,0,0,0-1,1H0a1,1,0,0,0,1,1H11V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V13H23a1,1,0,0,0,1-1h0A1,1,0,0,0,23,11Z')
+        h3 Colors
         .color-inputs
           .color-input-group
             .color-input
@@ -51,6 +47,7 @@
               input#gradient_border_stop_1(type='range' min='0' max='360' step='1' value='360')
               input.input-number(type='number' min='0' max='360' value='360')
             +deleteButton('delete-color')
+        button.btn#gradient_border_add_color Add color  
     .columns__col
       .color-input
         label(for='gradient_border_bg_color') Background color
