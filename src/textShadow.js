@@ -2,44 +2,46 @@ import $ from "jquery";
 import { HEXtoRGBA } from "./utils/HEXtoRGBA.js";
 
 const fontSizeInput = $("#text_shadow_font_size");
-const offsetXInput = $("#text_shadow_offset_x");
-const offsetYInput = $("#text_shadow_offset_y");
-const blurRadiusInput = $("#text_shadow_blur_radius");
-const opacityInput = $("#text_shadow_opacity");
-const colorInput = $("#text_shadow_color");
-
-const generateTextShadowStyles = (offsetX, offsetY, blurRadius, color) => {
-  const styles = `${offsetX}px ${offsetY}px ${blurRadius}px ${color}`;
-  return styles;
-};
+const textColorInput = $("#text_shadow_text_color");
 
 const setStyles = () => {
   const fontSize = fontSizeInput.val();
-  const offsetX = offsetXInput.val();
-  const offsetY = offsetYInput.val();
-  const blurRadius = blurRadiusInput.val();
-  const opacity = opacityInput.val();
-  const color = colorInput.val();
-  const rgba = HEXtoRGBA(color, opacity);
-  const styles = generateTextShadowStyles(offsetX, offsetY, blurRadius, rgba);
+  const textColor = textColorInput.val();
+  const offsetXInputs = $('[id^="text_shadow_offset_x"]');
+  const offsetYInputs = $('[id^="text_shadow_offset_y"]');
+  const blurRadiusInputs = $('[id^="text_shadow_blur_radius"]');
+  const opacityInputs = $('[id^="text_shadow_opacity"]');
+  const colorInputs = $('[id^="text_shadow_color"]');
+
+  const shadows = colorInputs
+    .map((i, colorInput) => {
+      const offsetX = $(offsetXInputs[i]).val();
+      const offsetY = $(offsetYInputs[i]).val();
+      const blurRadius = $(blurRadiusInputs[i]).val();
+      const color = $(colorInput).val();
+      const opacity = $(opacityInputs).val();
+      const rgbaColor = HEXtoRGBA(color, opacity);
+      const shadow = `${offsetX}px ${offsetY}px ${blurRadius}px ${rgbaColor}`;
+      return shadow;
+    })
+    .get()
+    .join(",");
 
   $("#text_shadow_result")
     .css("fontSize", `${fontSize}px`)
-    .css("text-shadow", styles);
+    .css("text-shadow", shadows)
+    .css("color", textColor);
 
-  $("#text_shadow_resultHex").text(
-    `text-shadow: ${generateTextShadowStyles(
-      offsetX,
-      offsetY,
-      blurRadius,
-      color
-    )}`
-  );
-  $("#text_shadow_resultRgba").text(`text-shadow: ${styles}`);
+  $("#text_shadow_resultHex").text(`text-shadow: ${shadows}`);
 };
 
 export const applyTextShadow = () => {
   setStyles();
+
+  $("#text_shadow_add_color").on("click", function () {
+    const colorInputs = $(this).siblings(".color-input-group");
+    const newColorInput = colorInputs.last().clone();
+  });
 
   $("#text_shadow .result-vue").css(
     "background-color",
