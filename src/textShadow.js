@@ -1,5 +1,6 @@
 import $ from "jquery";
 import { HEXtoRGBA } from "./utils/HEXtoRGBA.js";
+import { getRandomColor } from "./utils/getRandomColor.js";
 
 const fontSizeInput = $("#text_shadow_font_size");
 const textColorInput = $("#text_shadow_text_color");
@@ -25,8 +26,8 @@ const setStyles = () => {
       return shadow;
     })
     .get()
-    .join(",");
-
+    .join(", ");
+  console.log(shadows);
   $("#text_shadow_result")
     .css("fontSize", `${fontSize}px`)
     .css("text-shadow", shadows)
@@ -36,11 +37,71 @@ const setStyles = () => {
 };
 
 export const applyTextShadow = () => {
+  $("#text_shadow button[data-id='delete-color']").prop("disabled", true);
   setStyles();
 
   $("#text_shadow_add_color").on("click", function () {
     const colorInputs = $(this).siblings(".color-input-group");
+    const colorInputsCount = colorInputs.length;
     const newColorInput = colorInputs.last().clone();
+    if (colorInputsCount === 1) {
+      $("#text_shadow button[data-id='delete-color']").prop("disabled", false);
+    }
+    newColorInput
+      .find("[for*='offset_x']")
+      .attr("for", `text_shadow_offset_x_${colorInputsCount + 1}`);
+    newColorInput
+      .find("[id*='offset_x']")
+      .attr("id", `text_shadow_offset_x_${colorInputsCount + 1}`)
+      .on("input", setStyles);
+    newColorInput
+      .find("[for*='offset_y']")
+      .attr("for", `text_shadow_offset_y_${colorInputsCount + 1}`);
+    newColorInput
+      .find("[id*='offset_y']")
+      .attr("id", `text_shadow_offset_y_${colorInputsCount + 1}`)
+      .on("input", setStyles);
+    newColorInput
+      .find("[for*='blur_radius']")
+      .attr("for", `text_shadow_blur_radius_${colorInputsCount + 1}`);
+    newColorInput
+      .find("[id*='blur_radius']")
+      .attr("id", `text_shadow_blur_radius_${colorInputsCount + 1}`)
+      .on("input", setStyles);
+    newColorInput
+      .find("[for*='opacity']")
+      .attr("for", `text_shadow_opacity_${colorInputsCount + 1}`);
+    newColorInput
+      .find("[id*='opacity']")
+      .attr("id", `text_shadow_opacity_${colorInputsCount + 1}`)
+      .on("input", setStyles);
+    newColorInput
+      .find("[type='color']")
+      .attr("id", `text_shadow_color_${colorInputsCount + 1}`)
+      .val(getRandomColor())
+      .on("input", setStyles);
+    newColorInput
+      .find("[data-id='delete-color']")
+      .prop("disabled", false)
+      .on("click", function () {
+        const colorInputsCount = $(this)
+          .closest(".color-inputs")
+          .children().length;
+        newColorInput.remove();
+        if (colorInputsCount <= 2) {
+          $("[data-id='delete-color']").prop("disabled", true);
+        }
+        setStyles();
+      });
+    newColorInput.find('input[type="number"]').on("input", function () {
+      $(this).prev('input[type="range"]').val($(this).val());
+    });
+    newColorInput.find('input[type="range"]').on("input", function () {
+      $(this).next('input[type="number"]').val($(this).val());
+    });
+
+    $(this).closest(".colors").children().last().before(newColorInput);
+    setStyles();
   });
 
   $("#text_shadow .result-vue").css(
