@@ -1,17 +1,9 @@
 import $ from "jquery";
-import { getConicColors, getNewColorInput } from "./utils";
-
-const generateGradientStyle = (
-  angle,
-  positionX,
-  positionY,
-  colors,
-  isRepeating
-) => {
-  return `${
-    isRepeating ? "repeating-" : ""
-  }conic-gradient(from ${angle}deg at ${positionX}% ${positionY}%, ${colors})`;
-};
+import {
+  getConicColors,
+  getNewColorInput,
+  generateConicGradientStyle,
+} from "./utils";
 
 const setStyles = () => {
   const angle = $("#conic_gradient_angle").val();
@@ -23,16 +15,16 @@ const setStyles = () => {
   const colorInput = $('[id^="conic_gradient_color"]');
 
   const colors = getConicColors(stopInputs, colorInput, hasHardStops);
-
-  const styles = generateGradientStyle(
+  const gradient = generateConicGradientStyle(
     angle,
-    positionX,
-    positionY,
     colors,
-    isRepeating
+    isRepeating,
+    positionX,
+    positionY
   );
-  $("#conic_gradient_result").css("background-image", styles);
-  $("#conic_gradient_result_code").text(`background-image: ${styles}`);
+
+  $("#conic_gradient_result").css("background-image", gradient);
+  $("#conic_gradient_result_code").text(`background-image: ${gradient}`);
 };
 
 export const applyConicGradient = () => {

@@ -1,17 +1,9 @@
 import $ from "jquery";
-import { getColors, getNewColorInput } from "./utils";
-
-const generateGradientStyle = (
-  shape,
-  positionX,
-  positionY,
-  colors,
-  isRepeating
-) => {
-  return `${
-    isRepeating ? "repeating-" : ""
-  }radial-gradient(${shape} at ${positionX}% ${positionY}%, ${colors})`;
-};
+import {
+  getColors,
+  getNewColorInput,
+  generateRadialGradientStyle,
+} from "./utils";
 
 const setStyles = () => {
   const isRepeating = $("#radial_gradient_repeating").is(":checked");
@@ -23,16 +15,16 @@ const setStyles = () => {
   const colorsInputs = $('[id^="radial_gradient_color"]');
 
   const colors = getColors(stopInputs, colorsInputs, hasHardStops);
-
-  const styles = generateGradientStyle(
+  const gradient = generateRadialGradientStyle(
     shape,
-    positionX,
-    positionY,
     colors,
-    isRepeating
+    isRepeating,
+    positionX,
+    positionY
   );
-  $("#radial_gradient_result").css("background-image", styles);
-  $("#radial_gradient_result_code").text(`background-image: ${styles}`);
+
+  $("#radial_gradient_result").css("background-image", gradient);
+  $("#radial_gradient_result_code").text(`background-image: ${gradient}`);
 };
 
 export const applyRadialGradient = () => {

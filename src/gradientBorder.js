@@ -1,14 +1,11 @@
 import $ from "jquery";
-import { getConicColors } from "./utils/getConicColors.js";
-import { getNewColorInput } from "./utils/getNewColorInput.js";
+import {
+  getConicColors,
+  getNewColorInput,
+  generateConicGradientStyle,
+} from "./utils";
 
-const generateGradientStyle = (
-  angle,
-  thickness,
-  borderRadius,
-  colors,
-  isRepeating
-) => {
+const generateStyle = (thickness, borderRadius, gradient) => {
   return `
     .box {
       height: 450px,
@@ -22,9 +19,7 @@ const generateGradientStyle = (
       inset: 0,
       border-radius: inherit,
       padding: ${thickness}px,
-      background: ${
-        isRepeating ? "repeating-" : ""
-      }conic-gradient(from ${angle}deg, ${colors}),
+      background: ${gradient},
       mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0),
       mask-composite: exclude,
     }`;
@@ -41,21 +36,13 @@ const setStyles = () => {
 
   const colors = getConicColors(stopInputs, colorInput, hasHardStops);
 
-  const styles = generateGradientStyle(
-    angle,
-    thickness,
-    borderRadius,
-    colors,
-    isRepeating
-  );
+  const gradient = generateConicGradientStyle(angle, colors, isRepeating);
 
-  const gradientBorderColors = `${
-    isRepeating ? "repeating-" : ""
-  }conic-gradient(from ${angle}deg, ${colors})`;
+  const styles = generateStyle(thickness, borderRadius, gradient);
 
   $("#gradient_border_result")
     .css("--gradient-border-radius", `${borderRadius}px`)
-    .css("--gradient-border-colors", gradientBorderColors)
+    .css("--gradient-border-colors", gradient)
     .css("--gradient-border-thickness", `${thickness}%`);
 
   $("#gradient_border_result_code ").text(styles);
