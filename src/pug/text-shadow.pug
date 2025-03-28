@@ -6,6 +6,7 @@
         label(for='text_shadow_font_size') Font size
         input#text_shadow_font_size(type='range' min='16' max='100' step='1' value='56')
         input.input-number(type='number' min='16' max='100' value='56')
+        span.unit px
       .color-input-group
         .color-input
           label(for='text_shadow_text_color') Text color
@@ -20,12 +21,15 @@
             label(for='text_shadow_offset_x_1') Offset X
             input#text_shadow_offset_x_1(type='range' min='-50' max='50' step='1' value='8')
             input.input-number(type='number' min='-50' max='50' value='8')
+            span.unit px
             label(for='text_shadow_offset_y_1') Offset Y
             input#text_shadow_offset_y_1(type='range' min='-50' max='50' step='1' value='8')
             input.input-number(type='number' min='-50' max='50' value='8')
+            span.unit px
             label(for='text_shadow_blur_radius_1') Blur radius
             input#text_shadow_blur_radius_1(type='range' min='0' max='15' step='1' value='0')
             input.input-number(type='number' min='0' max='15' value='0')
+            span.unit px
             label(for='text_shadow_opacity_1') Opacity
             input#text_shadow_opacity_1(type='range' min='0' max='1' step='0.01')
             input.input-number(type='number' min='0' max='1' value='0.01')
@@ -35,7 +39,7 @@
         button.btn#text_shadow_add_color Add color  
     .columns__col
       .result-vue.result-vue_center
-        #text_shadow_result(contenteditable='') Result
+        #text_shadow_result(contenteditable='').text-result Result
 
       .result-code
         h3 Style

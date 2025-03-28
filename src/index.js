@@ -5,6 +5,7 @@ import { applyGradient } from "./gradient.js";
 import { applyRadialGradient } from "./radialGradient.js";
 import { applyConicGradient } from "./conicGradient.js";
 import { applyGradientBorder } from "./gradientBorder.js";
+import { applyGradientText } from "./gradietnText.js";
 
 $(".container").each(function () {
   let tabs = $(this);
@@ -51,3 +52,4 @@ applyGradient();
 applyRadialGradient();
 applyConicGradient();
 applyGradientBorder();
+applyGradientText();

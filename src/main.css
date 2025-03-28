@@ -186,7 +186,7 @@ body {
 
 .slider-input-group {
   display: grid;
-  grid-template-columns: 1fr 5fr 0.5fr;
+  grid-template-columns: 1fr 5fr 0.5fr 0.5fr;
   align-items: center;
   gap: 1rem;
 }
@@ -203,6 +203,10 @@ body {
   display: grid;
   grid-template-columns: 20px auto;
   gap: 1rem;
+}
+
+.unit {
+  color: var(--dark);
 }
 
 /* box shadow */
@@ -256,9 +260,20 @@ label {
   text-wrap: nowrap;
 }
 
+/* gradient text */
+
+#gradient_text_result {
+  font-size: 100px;
+  line-height: 100px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
 /* text shadow */
 
-#text_shadow_result {
+.text-result {
   outline: none;
   word-break: break-all;
   cursor: text;

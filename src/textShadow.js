@@ -1,6 +1,5 @@
 import $ from "jquery";
-import { HEXtoRGBA } from "./utils/HEXtoRGBA.js";
-import { getRandomColor } from "./utils/getRandomColor.js";
+import { HEXtoRGBA, getRandomColor } from "./utils";
 
 const fontSizeInput = $("#text_shadow_font_size");
 const textColorInput = $("#text_shadow_text_color");
@@ -27,7 +26,7 @@ const setStyles = () => {
     })
     .get()
     .join(", ");
-  console.log(shadows);
+
   $("#text_shadow_result")
     .css("fontSize", `${fontSize}px`)
     .css("text-shadow", shadows)

@@ -1,6 +1,5 @@
 import $ from "jquery";
-import { getConicColors } from "./utils/getConicColors.js";
-import { getNewColorInput } from "./utils/getNewColorInput.js";
+import { getConicColors, getNewColorInput } from "./utils";
 
 const generateGradientStyle = (
   angle,

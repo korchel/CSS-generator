@@ -1,32 +1,29 @@
 import $ from "jquery";
-import { getNewColorInput } from "./utils/getNewColorInput.js";
-import { getColors } from "./utils/getColors.js";
-
-const generateGradientStyle = (angle, colors, isRepeating) => {
-  return `${
-    isRepeating ? "repeating-" : ""
-  }linear-gradient(${angle}deg, ${colors})`;
-};
+import {
+  getNewColorInput,
+  getColors,
+  generateLinearGradientStyle,
+} from "./utils";
 
 const setStyles = () => {
-  const isRepeating = $("#gradient_repeating").is(":checked");
-  const angle = $("#gradient_angle").val();
-  const stopInputs = $('[id^="gradient_stop"]');
-  const colorsInputs = $('[id^="gradient_color"]');
-  const hasHardStops = $("#gradient_hard_stops").is(":checked");
+  const isRepeating = $("#linear_gradient_repeating").is(":checked");
+  const angle = $("#linear_gradient_angle").val();
+  const stopInputs = $('[id^="linear_gradient_stop"]');
+  const colorsInputs = $('[id^="linear_gradient_color"]');
+  const hasHardStops = $("#linear_gradient_hard_stops").is(":checked");
 
   const colors = getColors(stopInputs, colorsInputs, hasHardStops);
-  const styles = generateGradientStyle(angle, colors, isRepeating);
+  const styles = generateLinearGradientStyle(angle, colors, isRepeating);
 
-  $("#gradient_result").css("background-image", styles);
-  $("#gradient_result_code").text(`background-image: ${styles}`);
+  $("#linear_gradient_result").css("background-image", styles);
+  $("#linear_gradient_result_code").text(`background-image: ${styles}`);
 };
 
 export const applyGradient = () => {
   setStyles();
   $("#linear_gradient button[data-id='delete-color']").prop("disabled", true);
 
-  $("#gradient_add_color").on("click", function () {
+  $("#linear_gradient_add_color").on("click", function () {
     const colorInputs = $(this).siblings(".color-inputs");
     const colorInputsCount = colorInputs.children().length;
     if (colorInputsCount === 7) {
@@ -42,7 +39,7 @@ export const applyGradient = () => {
 
     const newColorInput = getNewColorInput(
       colorInputs,
-      "gradient",
+      "linear_gradient",
       colorInputsCount,
       setStyles
     );

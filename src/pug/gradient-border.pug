@@ -1,10 +1,10 @@
 #gradient_border.content__item
-  h2.content__item_header Gradient border
+  h2.content__item_header Gradient
   .columns
     .columns__col.columns__col_left
       .color-input
-          label(for='gradient_border_bg_color') Background color
-          input#gradient_border_bg_color(type='color' value='#e2e2e2')
+        label(for='gradient_border_bg_color') Background color
+        input#gradient_border_bg_color(type='color' value='#e2e2e2')
       .checkbox-input-group
         label(for='gradient_border_repeating') Repeating
         input#gradient_border_repeating(type='checkbox')
@@ -14,12 +14,15 @@
         label(for='gradient_border_angle') Angle
         input#gradient_border_angle(type='range' min='0' max='360' step='1' value='0')
         input.input-number(type='number' min='0' max='360' value='0')
+        span.unit deg
         label(for='gradient_border_thickness') Thickness
         input#gradient_border_thickness(type='range' min='1' max='20' step='1' value='5')
         input.input-number(type='number' min='1' max='20' value='5')
+        span.unit px
         label(for='gradient_border_radius') Radius
         input#gradient_border_radius(type='range' min='0' max='100' step='1' value='20')
         input.input-number(type='number' min='0' max='100' value='20')
+        span.unit px
       .colors
         h3 Colors
         .color-inputs
@@ -31,6 +34,7 @@
               label(for='gradient_border_stop_1') Stop
               input#gradient_border_stop_1(type='range' min='0' max='360' step='1' value='0')
               input.input-number(type='number' min='0' max='360' value='0')
+              span.unit deg
             +deleteButton('delete-color')
           .color-input-group
             .color-input
@@ -40,6 +44,7 @@
               label(for='gradient_border_stop_2') Stop
               input#gradient_border_stop_2(type='range' min='0' max='360' step='1' value='180')
               input.input-number(type='number' min='0' max='360' value='180')
+              span.unit deg
             +deleteButton('delete-color')
           .color-input-group
             .color-input
@@ -49,6 +54,7 @@
               label(for='gradient_border_stop_3') Stop
               input#gradient_border_stop_1(type='range' min='0' max='360' step='1' value='360')
               input.input-number(type='number' min='0' max='360' value='360')
+              span.unit deg
             +deleteButton('delete-color')
         button.btn#gradient_border_add_color Add color  
     .columns__col

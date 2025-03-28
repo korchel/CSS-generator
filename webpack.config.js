@@ -1,4 +1,4 @@
-import PugPlugin from "pug-plugin";
+const PugPlugin = require("pug-plugin");
 
 export default {
   mode: process.env.NODE_ENV || "development",

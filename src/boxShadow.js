@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { HEXtoRGBA } from "./utils/HEXtoRGBA.js";
+import { HEXtoRGBA } from "./utils";
 
 const insideInput = $("#box_shadow_inside");
 const offsetXInput = $("#box_shadow_offset_x");
