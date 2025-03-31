@@ -1,12 +1,12 @@
 const PugPlugin = require("pug-plugin");
 
-export default {
+module.exports = {
   mode: process.env.NODE_ENV || "development",
   module: {
     rules: [
       {
-        test: /\.(scss|css)$/,
-        use: ["css-loader"],
+        test: /\.(sass|css)$/,
+        use: ["css-loader", "sass-loader"],
       },
     ],
   },

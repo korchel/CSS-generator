@@ -1,0 +1,41 @@
+.icon-button 
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 30px
+  width: 30px
+  padding: 0
+  background-color: transparent
+  fill: var(--dark)
+  border: none
+  cursor: pointer
+  transition: border 0.3s, fill 0.3s
+  &:hover,
+  &:disabled
+    fill: var(--secondary)
+    
+  &_upper-right 
+    position: absolute
+    top: 0
+    right: 0
+
+  &_round-border 
+    border: 2px solid var(--dark)
+    border-radius: 50%
+
+  &_round-border:hover 
+    border-color: var(--secondary)
+
+.btn 
+  height: 32px
+  background-color: var(--secondary)
+  color: var(--light)
+  font-family: inherit
+  font-size: inherit
+  border: none
+  border-radius: 5px
+  cursor: pointer
+  transition: all 0.2s
+  padding: 0
+  &:hover 
+    color: var(--primary)

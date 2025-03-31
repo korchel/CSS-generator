@@ -1,0 +1,63 @@
+.result-vue 
+  height: 100%
+  width: 100%
+  flex: 1
+
+  &_center 
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 1rem
+  
+  &_with-sliders
+    position: relative
+    background-size: 95% 95%
+    background-repeat: no-repeat
+    background-position: right top
+  
+    &__vertical-slider 
+      position: absolute
+      transform-origin: top left
+      left: 0
+      top: 0
+      transform: rotate(90deg) translateY(-100%)
+
+      label 
+        display: block
+        transform: rotate(180deg)
+
+    &__horisontal-slider 
+      position: absolute
+      bottom: 0
+      right: 0
+      width: 95%
+
+.result-code 
+  min-height: 80px
+  position: relative
+
+  &__code 
+    margin-top: 1rem
+    color: var(--black)
+    display: inline-block
+    line-height: 1
+
+.text-result 
+  outline: none
+  word-break: break-all
+  cursor: text
+  width: 100%
+  text-align: center
+
+#gradient_text_result 
+  font-size: 100px
+  line-height: 100px
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  -moz-background-clip: text
+  -moz-text-fill-color: transparent
+
+#box_shadow_result 
+  height: 100px
+  width: 100px
+  background-color: var(--primary)

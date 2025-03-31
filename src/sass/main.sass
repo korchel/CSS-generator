@@ -1,0 +1,43 @@
+@forward './menu'
+@forward './buttons'
+@forward './result'
+@forward './inputs'
+@forward './content'
+@forward './gradient-border-result'
+  
+@font-face 
+  font-family: "Rubik"
+  src: url("../fonts/Rubik-Regular.ttf")
+  font-weight: 400
+
+@font-face 
+  font-family: "Rubik"
+  src: url("../fonts/Rubik-Medium.ttf")
+  font-weight: 500
+
+@font-face 
+  font-family: "Rubik"
+  src: url("../fonts/Rubik-Bold.ttf")
+  font-weight: 700
+
+:root 
+  --light: #eff6e0
+  --primary: #aec3b0
+  --secondary: #598392
+  --dark: #124559
+  --black: #01161e
+  font-family: "Rubik", sans-serif
+
+body 
+  background-color: var(--light)
+  color: var(--black)
+  height: 100vh
+
+* 
+  margin: 0
+  box-sizing: border-box
+
+.container 
+  display: flex
+  height: 100%
+
