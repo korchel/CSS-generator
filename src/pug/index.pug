@@ -12,7 +12,8 @@ html(lang="en")
   body
     div.container
       nav.menu
-        a.menu__tab.menu__tab_active(href="gradient_text") gradient text
+        a.menu__tab.menu__tab_active(href="striped_border") striped border
+        a.menu__tab(href="gradient_text") gradient text
         a.menu__tab(href="text_shadow") text shadow
         a.menu__tab(href="linear_gradient") linear gradient
         a.menu__tab(href="gradient_border") gradient border
@@ -20,6 +21,7 @@ html(lang="en")
         a.menu__tab(href="conic_gradient") conic gradient
         a.menu__tab(href="box_shadow") box shadow
       div.content
+        include ./striped-border.pug
         include ./gradient-text.pug
         include ./text-shadow.pug
         include ./linear-gradient.pug

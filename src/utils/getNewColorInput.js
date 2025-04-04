@@ -8,7 +8,7 @@ export const getNewColorInput = (
   setStyles
 ) => {
   const newColorInput = colorInputs.children().first().clone();
-
+  console.log(newColorInput.find(".slider-input-group input[type='range']"));
   newColorInput
     .find(".color-input label")
     .attr("for", `${type}_color_${colorInputsCount + 1}`);
@@ -18,10 +18,10 @@ export const getNewColorInput = (
     .val(getRandomColor())
     .on("input", setStyles);
   newColorInput
-    .find(".stop-input label")
+    .find(".slider-input-group label")
     .attr("for", `${type}_stop_${colorInputsCount + 1}`);
   newColorInput
-    .find(".stop-input input[type='range']")
+    .find(".slider-input-group input[type='range']")
     .attr("id", `${type}_stop_${colorInputsCount + 1}`)
     .on("input", setStyles)
     .on("input", function () {

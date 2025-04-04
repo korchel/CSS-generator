@@ -32,15 +32,11 @@ export const applyConicGradient = () => {
   $("#conic_gradient button[data-id='delete-color']").prop("disabled", true);
 
   $("[href='conic_gradient']").on("click", () => {
-    $("#conic_gradient_position_y").width(
-      0.95 * $("#conic_gradient_result").height()
-    );
+    $("#conic_gradient_position_y").width($("#conic_gradient_result").height());
   });
 
   $(window).on("resize", function () {
-    $("#conic_gradient_position_y").width(
-      0.95 * $("#conic_gradient_result").height()
-    );
+    $("#conic_gradient_position_y").width($("#conic_gradient_result").height());
   });
 
   $("#conic_gradient_add_color").on("click", function () {

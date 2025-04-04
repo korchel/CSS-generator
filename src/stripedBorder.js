@@ -1,8 +1,8 @@
 import $ from "jquery";
 import {
-  getConicColors,
   getNewColorInput,
-  generateConicGradientStyle,
+  generateLinearGradientStyle,
+  getColors,
 } from "./utils";
 
 const generateStyle = (thickness, borderRadius, gradient) => {
@@ -26,32 +26,32 @@ const generateStyle = (thickness, borderRadius, gradient) => {
 };
 
 const setStyles = () => {
-  const angle = $("#gradient_border_angle").val();
-  const isRepeating = $("#gradient_border_repeating").is(":checked");
-  const hasHardStops = $("#gradient_border_hard_stops").is(":checked");
-  const thickness = $("#gradient_border_thickness").val();
-  const borderRadius = $("#gradient_border_radius").val();
-  const stopInputs = $('[id^="gradient_border_stop"]');
-  const colorInput = $('[id^="gradient_border_color"]');
+  const angle = $("#striped_border_angle").val();
+  const isRepeating = $("#striped_border_repeating").is(":checked");
+  const hasHardStops = $("#striped_border_hard_stops").is(":checked");
+  const thickness = $("#striped_border_thickness").val();
+  const borderRadius = $("#striped_border_radius").val();
+  const stopInputs = $('[id^="striped_border_stop"]');
+  const colorInput = $('[id^="striped_border_color"]');
 
-  const colors = getConicColors(stopInputs, colorInput, hasHardStops);
+  const colors = getColors(stopInputs, colorInput, hasHardStops);
 
-  const gradient = generateConicGradientStyle(angle, colors, isRepeating);
+  const gradient = generateLinearGradientStyle(angle, colors, isRepeating);
 
   const styles = generateStyle(thickness, borderRadius, gradient);
 
-  $("#gradient_border_result")
+  $("#striped_border_result")
     .css("--gradient-border-radius", `${borderRadius}px`)
     .css("--gradient-border-colors", gradient)
     .css("--gradient-border-thickness", `${thickness}%`);
 
-  $("#gradient_border_result_code ").text(styles);
+  $("#striped_border_result_code ").text(styles);
 };
 
-export const applyGradientBorder = () => {
+export const applyStripedBorder = () => {
   setStyles();
 
-  $("#gradient_border_add_color").on("click", function () {
+  $("#striped_border_add_color").on("click", function () {
     const colorInputs = $(this).siblings(".color-inputs");
     const colorInputsCount = colorInputs.children().length;
     if (colorInputsCount === 7) {
@@ -59,7 +59,7 @@ export const applyGradientBorder = () => {
     }
 
     if (colorInputsCount < 3) {
-      $("#gradient_border button[data-id='delete-color']").prop(
+      $("#striped_border button[data-id='delete-color']").prop(
         "disabled",
         false
       );
@@ -67,25 +67,25 @@ export const applyGradientBorder = () => {
 
     const newColorInput = getNewColorInput(
       colorInputs,
-      "gradient_border",
+      "striped_border",
       colorInputsCount,
       setStyles
     );
 
-    colorInputs.children().last().before(newColorInput);
+    colorInputs.append(newColorInput);
     setStyles();
   });
 
-  $("#gradient_border .result-vue").css(
+  $("#striped_border .result-vue").css(
     "background-color",
-    $("#gradient_border_bg_color").val()
+    $("#striped_border_bg_color").val()
   );
 
-  $("#gradient_border_bg_color").on("input", function () {
-    $("#gradient_border .result-vue").css("background-color", $(this).val());
+  $("#striped_border_bg_color").on("input", function () {
+    $("#striped_border .result-vue").css("background-color", $(this).val());
   });
 
-  $("#gradient_border input").on("input", function () {
+  $("#striped_border input").on("input", function () {
     setStyles();
   });
 };

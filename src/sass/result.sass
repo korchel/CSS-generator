@@ -11,17 +11,16 @@
   
   &_with-sliders
     position: relative
-    background-size: 95% 95%
-    background-repeat: no-repeat
-    background-position: right top
-  
+    padding-left: 50px
+    padding-bottom: 50px
+    background-clip: content-box
     &__vertical-slider 
       position: absolute
       transform-origin: top left
       left: 0
       top: 0
       transform: rotate(90deg) translateY(-100%)
-
+      
       label 
         display: block
         transform: rotate(180deg)
@@ -30,17 +29,23 @@
       position: absolute
       bottom: 0
       right: 0
-      width: 95%
+      width: calc(100% - 50px)
 
 .result-code 
-  min-height: 80px
+  min-height: 200px
+  max-height: 50%
   position: relative
 
   &__code 
     margin-top: 1rem
+    width: 100%
     color: var(--black)
+    border: 1px solid var(--dark)
     display: inline-block
     line-height: 1
+    white-space: pre-wrap
+    padding: 1rem
+    overflow-y: auto
 
 .text-result 
   outline: none

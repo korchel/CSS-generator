@@ -1,0 +1,59 @@
+#striped_border.content__item
+  h2.content__item_header Striped border
+  .columns
+    .columns__col.columns__col_left
+      .color-input
+        label(for='striped_border_bg_color') Background color
+        input#striped_border_bg_color(type='color' value='#b0b0b0')
+      .checkbox-input-group
+        label(for='striped_border_repeating') Repeating
+        input#striped_border_repeating(type='checkbox' checked)
+        label(for='striped_border_hard_stops') Hard stops
+        input#striped_border_hard_stops(type='checkbox' checked)
+      .slider-input-group
+        label(for='striped_border_angle') Angle
+        input#striped_border_angle(type='range' min='0' max='360' step='1' value='45')
+        input.input-number(type='number' min='0' max='360' value='45')
+        span.unit deg
+        label(for='striped_border_thickness') Thickness
+        input#striped_border_thickness(type='range' min='1' max='20' step='1' value='5')
+        input.input-number(type='number' min='1' max='20' value='5')
+        span.unit px
+        label(for='striped_border_radius') Radius
+        input#striped_border_radius(type='range' min='0' max='100' step='1' value='20')
+        input.input-number(type='number' min='0' max='100' value='20')
+        span.unit px
+      .colors
+        h3 Colors
+        .color-inputs
+          .color-input-group
+            .color-input
+              label(for='striped_border_color_1') Color
+              input#striped_border_color_1(type='color' value='#0000ff')
+            .slider-input-group 
+              label(for='striped_border_stop_1') Stop
+              input#striped_border_stop_1(type='range' min='0' max='100' step='1' value='5')
+              input.input-number(type='number' min='0' max='100' value='5')
+              span.unit %
+            +deleteButton('delete-color')
+          .color-input-group
+            .color-input
+              label(for='striped_border_color_2') Color
+              input#striped_border_color_2(type='color' value='#ff0000')
+            .slider-input-group 
+              label(for='striped_border_stop_2') Stop
+              input#striped_border_stop_2(type='range' min='0' max='100' step='1' value='10')
+              input.input-number(type='number' min='0' max='100' value='10')
+              span.unit %
+            +deleteButton('delete-color')
+          
+        button.btn#striped_border_add_color Add color  
+    .columns__col.columns__col_right
+      .result-vue.result-vue_center
+        #striped_border_result
+      .result-codes
+        .result-code
+          h3 Style
+          pre
+            code#striped_border_result_code.result-code__code
+          +copyButton(data-id='striped_border_result_code' class='icon-button_upper-right')

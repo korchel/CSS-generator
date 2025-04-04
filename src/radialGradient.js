@@ -33,13 +33,13 @@ export const applyRadialGradient = () => {
 
   $("[href='radial_gradient']").on("click", () => {
     $("#radial_gradient_position_y").width(
-      0.95 * $("#radial_gradient_result").height()
+      $("#radial_gradient_result").height()
     );
   });
 
   $(window).on("resize", function () {
     $("#radial_gradient_position_y").width(
-      0.95 * $("#radial_gradient_result").height()
+      $("#radial_gradient_result").height()
     );
   });
 
