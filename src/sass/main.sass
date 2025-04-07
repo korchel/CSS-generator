@@ -26,6 +26,7 @@
   --secondary: #8b8b8b
   --dark: #3a3f4e
   --black: #020100
+  --success: #79b473
   font-family: "Rubik", sans-serif
 
 body 
@@ -40,4 +41,15 @@ body
 .container 
   display: flex
   height: 100%
+
+.message 
+  background-color: var(--success)
+  color: var(--light)
+  font-size: 1.5rem
+  padding: 0.5rem
+  display: none
+  position: absolute
+  z-index: 1
+  top: 50px
+  left: 50%
 

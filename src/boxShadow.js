@@ -34,6 +34,7 @@ const setStyles = () => {
 };
 
 export const applyBoxShadow = () => {
+  $("#box_shadow button[data-id='delete-color']").prop("disabled", true);
   setStyles();
 
   $("#box_shadow_add_color").on("click", function () {

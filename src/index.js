@@ -29,6 +29,7 @@ $('[title="copy"]').on("click", function () {
   const text = $(`#${$(this).attr("data-id")}`);
   text.select();
   navigator.clipboard.writeText(text.text());
+  $(".message").show().fadeOut(2000);
 });
 
 $("[data-id='delete-color']").on("click", function () {
