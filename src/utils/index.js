@@ -4,5 +4,6 @@ export { generateRadialGradientStyle } from "./generateRadialGradientStyle";
 export { getColors } from "./getColors";
 export { getConicColors } from "./getConicColors";
 export { getNewColorInput } from "./getNewColorInput";
+export { getNewShadowColorInput } from "./getNewShadowColorInput";
 export { getRandomColor } from "./getRandomColor";
 export { HEXtoRGBA } from "./HEXtoRGBA";

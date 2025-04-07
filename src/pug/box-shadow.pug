@@ -2,34 +2,47 @@
   h2.content__item_header Box shadow
   .columns
     .columns__col.columns__col_left
-      .color-input
-        label(for='box_shadow_bg_color') Background
-        input#box_shadow_bg_color(type='color' value='#b0b0b0')
-      .checkbox-input-group
-        label(for='box_shadow_inside') Inside
-        input#box_shadow_inside(type='checkbox')
-      .slider-input-group
-        label(for='box_shadow_offset_x') Offset X
-        input#box_shadow_offset_x(type='range' min='-15' max='15' step='1' value='8')
-        input.input-number(type='number' min='-15' max='15' value='8')
-        span.unit px
-        label(for='box_shadow_offset_y') Offset Y
-        input#box_shadow_offset_y(type='range' min='-15' max='15' step='1' value='8')
-        input.input-number(type='number' min='-15' max='15' value='8')
-        span.unit px
-        label(for='box_shadow_blur_radius') Blur radius
-        input#box_shadow_blur_radius(type='range' min='0' max='15' step='1' value='0')
-        input.input-number(type='number' min='0' max='15' value='0')
-        span.unit px
-        label(for='box_shadow_spread_radius') Spread radius
-        input#box_shadow_spread_radius(type='range' min='0' max='15' step='1' value='0')
-        input.input-number(type='number' min='0' max='15' value='0')
-        span.unit px
-        label(for='box_shadow_opacity') Opacity
-        input#box_shadow_opacity(type='range' min='0' max='1' step='0.01' value='0')
-        input.input-number(type='number' min='0' max='1' value='0')
-      label(for='box_shadow_color') Color
-      input#box_shadow_color(type='color' value='#ffaa00')
+      .color-input-group
+        .color-input
+          label(for='box_shadow_bg_color') Background
+          input#box_shadow_bg_color(type='color' value='#b0b0b0')
+        .color-input
+          label(for='box_shadow_div_color') Block color
+          input#box_shadow_div_color(type='color' value='#0000cc')
+
+      h3 Colors
+      .colors
+        .color-input-group
+          .slider-input-group
+            .checkbox-input-group.checkbox-input-group_colors
+              label(for='box_shadow_inside_1') Inside
+              input#box_shadow_inside_1(type='checkbox')
+            label(for='box_shadow_offset_x_1') Offset X
+            input#box_shadow_offset_x_1(type='range' min='-100' max='100' step='1' value='50')
+            input.input-number(type='number' min='-100' max='100' value='50')
+            span.unit px
+            label(for='box_shadow_offset_y_1') Offset Y
+            input#box_shadow_offset_y_1(type='range' min='-100' max='100' step='1' value='50')
+            input.input-number(type='number' min='-100' max='100' value='50')
+            span.unit px
+            label(for='box_shadow_blur_radius_1') Blur radius
+            input#box_shadow_blur_radius_1(type='range' min='0' max='100' step='1' value='50')
+            input.input-number(type='number' min='0' max='100' value='50')
+            span.unit px
+            label(for='box_shadow_spread_radius_1') Spread radius
+            input#box_shadow_spread_radius_1(type='range' min='0' max='100' step='1' value='20')
+            input.input-number(type='number' min='0' max='100' value='20')
+            span.unit px
+            label(for='box_shadow_opacity_1') Opacity
+            input#box_shadow_opacity_1(type='range' min='0' max='1' step='0.01' value='0.5')
+            input.input-number(type='number' min='0' max='1' value='0.5')
+
+          .color-input
+            input#box_shadow_color(type='color' value='#0a0a0a')
+          
+          +deleteButton('delete-color', 'icon-button_upper-right')
+
+        button.btn#box_shadow_add_color Add color
     .columns__col.columns__col_right
       .result-vue.result-vue_center
         #box_shadow_result

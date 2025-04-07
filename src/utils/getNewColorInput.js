@@ -8,7 +8,7 @@ export const getNewColorInput = (
   setStyles
 ) => {
   const newColorInput = colorInputs.children().first().clone();
-  console.log(newColorInput.find(".slider-input-group input[type='range']"));
+
   newColorInput
     .find(".color-input label")
     .attr("for", `${type}_color_${colorInputsCount + 1}`);
