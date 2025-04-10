@@ -4,6 +4,7 @@
 @forward './inputs'
 @forward './content'
 @forward './gradient-border'
+@forward './header'
   
 @font-face 
   font-family: "Rubik"
@@ -28,28 +29,42 @@
   --black: #020100
   --success: #79b473
   font-family: "Rubik", sans-serif
-
-body 
-  background-color: var(--light)
-  color: var(--black)
-  height: 100vh
+html
+  font-size: 16px
+  @media (max-width: 600px)
+    font-size: 12px
 
 * 
   margin: 0
   box-sizing: border-box
+  
+body 
+  background-color: var(--primary)
+  color: var(--black)
+  display: flex
+  flex-direction: column
+  font-size: 16px
 
 .container 
-  display: flex
-  height: 100%
+  width: 100%
+  padding-inline: 2rem
 
-.message 
-  background-color: var(--success)
-  color: var(--light)
-  font-size: 1.5rem
-  padding: 0.5rem
-  display: none
-  position: absolute
-  z-index: 1
-  top: 50px
-  left: 50%
+.main
+  padding-left: 150px
+  height: 100%
+  flex-grow: 1
+  @media (max-width: 1200px)
+    padding-left: 0
+
+.sidebar
+  width: 150px
+  height: 100vh
+  z-index: 10
+  padding-top: 50px
+  background-color: var(--secondary)
+  position: fixed
+  top: 0
+  left: 0
+  @media (max-width: 1200px)
+    left: -150px
 

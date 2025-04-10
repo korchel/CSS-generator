@@ -1,5 +1,6 @@
 include ./mixins/deleteButton.pug
 include ./mixins/copyButton.pug
+include ./mixins/menuButton.pug
 
 doctype html
 html(lang="en")
@@ -10,8 +11,7 @@ html(lang="en")
     script(src="../index.js" defer="defer" type="module")
     title CSS Generator
   body
-    .message Copied!
-    div.container
+    sidebar.sidebar
       nav.menu
         a.menu__tab.menu__tab_active(href="box_shadow") box shadow
         a.menu__tab(href="striped_border") striped border
@@ -21,15 +21,22 @@ html(lang="en")
         a.menu__tab(href="gradient_border") gradient border
         a.menu__tab(href="radial_gradient") radial gradient
         a.menu__tab(href="conic_gradient") conic gradient
+      +deleteButton('close-menu', 'icon-button_upper-right icon-button_sidebar')
+    
+    header
+      .container.header
+        +menuButton('open-menu', 'menu-button')
         
-      div.content
-        include ./box-shadow.pug
-        include ./striped-border.pug
-        include ./gradient-text.pug
-        include ./text-shadow.pug
-        include ./linear-gradient.pug
-        include ./gradient-border.pug
-        include ./radial-gradient.pug
-        include ./conic-gradient.pug
+    main.main
+      .container
+        .content
+          include ./box-shadow.pug
+          include ./striped-border.pug
+          include ./gradient-text.pug
+          include ./text-shadow.pug
+          include ./linear-gradient.pug
+          include ./gradient-border.pug
+          include ./radial-gradient.pug
+          include ./conic-gradient.pug
         
         

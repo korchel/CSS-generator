@@ -18,13 +18,15 @@
     position: absolute
     top: 0
     right: 0
-
-  &_round-border 
-    border: 2px solid var(--dark)
-    border-radius: 50%
-
-  &_round-border:hover 
-    border-color: var(--secondary)
+  
+  &_sidebar
+    display: none
+    fill: var(--light)
+    &:hover,
+    &:disabled
+      fill: var(--dark)
+    @media (max-width: 1200px)
+      display: flex
 
 .btn 
   height: 32px

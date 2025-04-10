@@ -8,28 +8,30 @@ import { applyGradientBorder } from "./gradientBorder.js";
 import { applyGradientText } from "./gradietnText.js";
 import { applyStripedBorder } from "./stripedBorder.js";
 
-$(".container").each(function () {
-  let tabs = $(this);
-  tabs.find(".content__item").not(":first").hide();
-  tabs.find(".menu__tab").click(function (e) {
-    e.preventDefault();
-    const currentmenu__tab_activeTab = $(".menu__tab_active");
-    const curretTabItem = tabs.find(".content__item");
-    const tabToOpen = tabs.find(".content__item").eq($(this).index());
-    if (!$(this).hasClass("menu__tab_active")) {
-      curretTabItem.hide();
-      tabToOpen.show();
-      $(this).addClass("menu__tab_active");
-      currentmenu__tab_activeTab.removeClass("menu__tab_active");
-    }
-  });
+$("body").each(function () {
+  $(".content").find(".content__item").not(":first").hide();
+  $(".menu")
+    .find(".menu__tab")
+    .on("click", function (e) {
+      e.preventDefault();
+      const currentmenu__tab_activeTab = $(".menu__tab_active");
+      const curretTabItem = $(".content").find(".content__item");
+      const tabToOpen = $(".content")
+        .find(".content__item")
+        .eq($(this).index());
+      if (!$(this).hasClass("menu__tab_active")) {
+        curretTabItem.hide();
+        tabToOpen.show();
+        $(this).addClass("menu__tab_active");
+        currentmenu__tab_activeTab.removeClass("menu__tab_active");
+      }
+    });
 });
 
 $('[title="copy"]').on("click", function () {
   const text = $(`#${$(this).attr("data-id")}`);
   text.select();
   navigator.clipboard.writeText(text.text());
-  $(".message").show().fadeOut(2000);
 });
 
 $("[data-id='delete-color']").on("click", function () {
@@ -38,6 +40,14 @@ $("[data-id='delete-color']").on("click", function () {
   if (colorInputsCount <= 3) {
     $("[data-id='delete-color']").prop("disabled", true);
   }
+});
+
+$('[data-id="open-menu"]').on("click", function () {
+  $(".sidebar").animate({ left: "0" });
+});
+
+$('[data-id="close-menu"]').on("click", function () {
+  $(".sidebar").animate({ left: "-150px" });
 });
 
 $("input[type='number']").on("input", function () {

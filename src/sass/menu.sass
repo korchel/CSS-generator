@@ -1,8 +1,4 @@
-.menu 
-  width: 150px
-  flex-shrink: 0
-  background-color: var(--secondary)
-
+.menu
   &__tab 
     display: block
     height: 35px
@@ -20,3 +16,11 @@
     &_active 
       background-color: var(--primary)
       color: var(--dark)
+
+.menu-button
+  visibility: hidden
+
+  @media (max-width: 1200px)
+    visibility: visible
+
+    
